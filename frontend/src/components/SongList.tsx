@@ -1,5 +1,5 @@
-import React from 'react';
-import type { Song } from '../utils/songParser'; 
+import React from "react";
+import type { Song } from "../utils/songParser";
 
 // Define props for the SongList component
 interface SongListProps {
@@ -13,23 +13,29 @@ const SongList: React.FC<SongListProps> = ({ songs, onSongSelect }) => {
   }
 
   return (
-    <ul style={{ listStyle: 'none', padding: 0 }}>
-      {songs.map(song => (
+    <ul style={{ listStyle: "none", padding: 0 }}>
+      {songs.map((song) => (
         <li
           key={song.title}
           onClick={() => onSongSelect(song)}
           style={{
-            cursor: 'pointer',
-            marginBottom: '10px',
-            padding: '10px',
-            border: '1px solid #ccc',
-            width: 'fit-content',
+            cursor: "pointer",
+            marginBottom: "10px",
+            padding: "10px",
+            border: "1px solid #ccc",
+            width: "fit-content",
           }}
         >
           <h3>{song.title}</h3>
           <p>Artist: {song.artist}</p>
           {/* Add image if song.image exists */}
-          {song.pictureUrl && <img src={song.pictureUrl} alt={`${song.title} cover`} style={{ maxWidth: '50px', maxHeight: '50px' }} />}
+          {song.pictureUrl && (
+            <img
+              src={song.pictureUrl}
+              alt={`${song.title} cover`}
+              style={{ maxWidth: "50px", maxHeight: "50px" }}
+            />
+          )}
         </li>
       ))}
     </ul>

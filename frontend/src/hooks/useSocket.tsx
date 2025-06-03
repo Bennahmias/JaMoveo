@@ -1,7 +1,7 @@
-import { useEffect, useState, useContext, createContext } from 'react';
-import type { ReactNode } from 'react';
-import io, { Socket } from 'socket.io-client';
-import { useAuth } from '../context/AuthContext'; // Import useAuth
+import { useEffect, useState, useContext, createContext } from "react";
+import type { ReactNode } from "react";
+import io, { Socket } from "socket.io-client";
+import { useAuth } from "../context/AuthContext"; // Import useAuth
 
 // Define the type for the socket context value
 interface ISocketContext {
@@ -13,7 +13,9 @@ interface ISocketContext {
 const SocketContext = createContext<ISocketContext | undefined>(undefined);
 
 // Create the SocketProvider component
-export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const SocketProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const { token } = useAuth(); // Get token from AuthContext
   const [socket, setSocket] = useState<Socket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
@@ -21,7 +23,9 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   useEffect(() => {
     // Logic to connect or disconnect based on token presence
     if (!token) {
-      console.log("No token available, disconnecting or skipping socket connection.");
+      console.log(
+        "No token available, disconnecting or skipping socket connection.",
+      );
       if (socket) {
         socket.disconnect();
         setSocket(null);
@@ -30,30 +34,31 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       return; // Stop here if no token
     }
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
     console.log(`Attempting to connect socket to ${backendUrl}`);
 
     // Attempt to connect
     const newSocket = io(backendUrl, {
-        auth: {
-            token: token // Send the JWT token
-        },
-        transports: ['websocket']
+      auth: {
+        token: token, // Send the JWT token
+      },
+      transports: ["websocket"],
     });
 
     // Setup listeners
-    newSocket.on('connect', () => {
-      console.log('Socket connected successfully:', newSocket.id);
+    newSocket.on("connect", () => {
+      console.log("Socket connected successfully:", newSocket.id);
       setIsConnected(true);
     });
 
-    newSocket.on('disconnect', (reason) => {
-      console.log('Socket disconnected:', reason);
+    newSocket.on("disconnect", (reason) => {
+      console.log("Socket disconnected:", reason);
       setIsConnected(false);
     });
 
-    newSocket.on('connect_error', (err) => {
-      console.error('Socket connection error:', err.message);
+    newSocket.on("connect_error", (err) => {
+      console.error("Socket connection error:", err.message);
       // Handle specific errors if needed
     });
 
@@ -61,16 +66,15 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
     // Cleanup function
     return () => {
-      console.log('Cleaning up socket connection.');
+      console.log("Cleaning up socket connection.");
       if (newSocket) {
         newSocket.disconnect();
         // Important: Remove listeners to prevent memory leaks on re-renders
-        newSocket.off('connect');
-        newSocket.off('disconnect');
-        newSocket.off('connect_error');
+        newSocket.off("connect");
+        newSocket.off("disconnect");
+        newSocket.off("connect_error");
       }
     };
-
   }, [token]); // Effect depends on token
 
   // Provide the socket and connection status via context
@@ -87,7 +91,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 export const useSocket = () => {
   const context = useContext(SocketContext);
   if (context === undefined) {
-    throw new Error('useSocket must be used within a SocketProvider');
+    throw new Error("useSocket must be used within a SocketProvider");
   }
   return context;
 };

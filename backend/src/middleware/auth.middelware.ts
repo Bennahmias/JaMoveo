@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import { JWTPayload } from '../utils/jwt';
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
+import { JWTPayload } from "../utils/jwt";
 
 // Extend Express Request type
 declare global {
@@ -11,11 +11,12 @@ declare global {
   }
 }
 
-const JWT_SECRET = process.env.JWT_SECRET || 'jamoveo-secret-key-2024-!@#$%^&*()_+';
+const JWT_SECRET =
+  process.env.JWT_SECRET || "jamoveo-secret-key-2024-!@#$%^&*()_+";
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    const token = req.header("Authorization")?.replace("Bearer ", "");
 
     if (!token) {
       throw new Error();
@@ -25,19 +26,23 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ message: 'Please authenticate' });
+    res.status(401).json({ message: "Please authenticate" });
   }
 };
 
-export const adminAuth = async (req: Request, res: Response, next: NextFunction) => {
+export const adminAuth = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
     await auth(req, res, () => {
       if (!req.user?.isAdmin) {
-        return res.status(403).json({ message: 'Access denied. Admin only.' });
+        return res.status(403).json({ message: "Access denied. Admin only." });
       }
       next();
     });
   } catch (error) {
-    res.status(401).json({ message: 'Please authenticate' });
+    res.status(401).json({ message: "Please authenticate" });
   }
 };

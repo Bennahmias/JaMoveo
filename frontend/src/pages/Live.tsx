@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSocket } from '../hooks/useSocket';
-import { useAuth } from '../context/AuthContext';
-import { formatSongLinesForDisplay } from '../utils/songParser';
-import type {Song} from '../utils/songParser';
+import React, { useEffect, useState, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSocket } from "../hooks/useSocket";
+import { useAuth } from "../context/AuthContext";
+import { formatSongLinesForDisplay } from "../utils/songParser";
+import type { Song } from "../utils/songParser";
 
 const Live: React.FC = () => {
   const location = useLocation();
@@ -11,39 +11,40 @@ const Live: React.FC = () => {
   const { socket } = useSocket();
   const { user, token } = useAuth();
   const { state } = location;
-  const sessionId = state?.sessionId || new URLSearchParams(location.search).get('sessionId');
+  const sessionId =
+    state?.sessionId || new URLSearchParams(location.search).get("sessionId");
   const [isAutoScrolling, setIsAutoScrolling] = useState(false);
   const scrollIntervalRef = useRef<number | null>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(false);
 
-  // Effect to join session room and set up socket listeners
   useEffect(() => {
     if (!sessionId) {
       console.error("No sessionId found in Live page state or query params.");
-      navigate(user?.isAdmin ? '/admin/main' : '/player/main');
+      navigate(user?.isAdmin ? "/admin/main" : "/player/main");
       return;
     }
 
     if (socket) {
       console.log(`Live page joining socket session room: ${sessionId}`);
-      socket.emit('joinSession', sessionId);
+      socket.emit("joinSession", sessionId);
 
       const handleSessionEnded = () => {
-        console.log('Received sessionEnded event. Navigating to main page.');
+        console.log("Received sessionEnded event. Navigating to main page.");
 
         if (user?.isAdmin) {
-          navigate('/admin/main');
+          navigate("/admin/main");
         } else {
-          navigate('/player/main');
+          navigate("/player/main");
         }
       };
 
-      socket.on('sessionEnded', handleSessionEnded);
+      socket.on("sessionEnded", handleSessionEnded);
 
       return () => {
-        console.log(`Live page cleaning up socket session listener for ${sessionId}`);
-        socket.off('sessionEnded', handleSessionEnded);
+        console.log(
+          `Live page cleaning up socket session listener for ${sessionId}`,
+        );
+        socket.off("sessionEnded", handleSessionEnded);
         if (scrollIntervalRef.current !== null) {
           window.clearInterval(scrollIntervalRef.current);
         }
@@ -51,21 +52,34 @@ const Live: React.FC = () => {
     }
   }, [sessionId, socket, navigate, user?.isAdmin]);
 
-  // Effect to check if content is scrollable and set canScroll state
   useEffect(() => {
     const checkScrollable = () => {
-      if (contentRef.current) {
-        setCanScroll(contentRef.current.scrollHeight > contentRef.current.clientHeight);
-      }
+      setCanScroll(document.body.scrollHeight > window.innerHeight);
     };
 
     checkScrollable();
-    window.addEventListener('resize', checkScrollable);
-
-    return () => {
-      window.removeEventListener('resize', checkScrollable);
-    };
+    window.addEventListener("resize", checkScrollable);
+    return () => window.removeEventListener("resize", checkScrollable);
   }, [state?.song]);
+
+  useEffect(() => {
+    if (!isAutoScrolling) return;
+
+    const handleScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+      if (nearBottom) {
+        setIsAutoScrolling(false);
+        if (scrollIntervalRef.current !== null) {
+          window.clearInterval(scrollIntervalRef.current);
+          scrollIntervalRef.current = null;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isAutoScrolling]);
 
   const toggleAutoScroll = () => {
     if (!canScroll) {
@@ -85,51 +99,48 @@ const Live: React.FC = () => {
       }
     } else {
       scrollIntervalRef.current = window.setInterval(() => {
-        if (contentRef.current) {
-          if (contentRef.current.scrollTop + contentRef.current.clientHeight >= contentRef.current.scrollHeight) {
-            if (scrollIntervalRef.current !== null) {
-              window.clearInterval(scrollIntervalRef.current);
-              scrollIntervalRef.current = null;
-            }
-            setIsAutoScrolling(false);
-          } else {
-            contentRef.current.scrollTop += 2;
-          }
-        }
-      }, 30);
+        window.scrollBy({ top: 2 });
+      }, 70);
     }
     setIsAutoScrolling(!isAutoScrolling);
   };
 
   const handleQuit = async () => {
-    console.log(`Admin ${user?.username} is quitting session ${sessionId}. Attempting to end via API.`);
+    console.log(
+      `Admin ${user?.username} is quitting session ${sessionId}. Attempting to end via API.`,
+    );
     if (sessionId && token) {
       try {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-        const response = await fetch(`${backendUrl}/api/rehearsal/sessions/${sessionId}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${token}`
+        const backendUrl =
+          import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        const response = await fetch(
+          `${backendUrl}/api/rehearsal/sessions/${sessionId}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
 
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message || `Error ending session: ${response.status}`);
+          throw new Error(
+            errorData.message || `Error ending session: ${response.status}`,
+          );
         }
 
         console.log(`Session ${sessionId} ended successfully via API.`);
       } catch (err) {
-        console.error('Failed to end session via API:', err);
-        navigate('/admin/main');
+        console.error("Failed to end session via API:", err);
+        navigate("/admin/main");
       }
     } else {
       console.warn("Cannot end session: SessionId or token missing.");
-      navigate('/admin/main');
+      navigate("/admin/main");
     }
   };
 
-  // Type assertion for state.song
   const currentSong = state?.song as Song | undefined;
 
   if (!currentSong) {
@@ -138,71 +149,161 @@ const Live: React.FC = () => {
 
   const formattedLines = formatSongLinesForDisplay(currentSong);
 
+  function detectDirection(line: {
+    segments: { lyrics: string }[];
+  }): "rtl" | "ltr" {
+    const text = line.segments.map((seg) => seg.lyrics).join(" ");
+    const rtlChar = /[\u0590-\u05FF]/;
+    return rtlChar.test(text) ? "rtl" : "ltr";
+  }
+
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-gray-800 p-4 shadow-lg flex items-center justify-between">
-        <div className="flex items-center">
+    <div
+      style={{
+        backgroundColor: "#121212",
+        color: "#fff",
+        minHeight: "100vh",
+        fontFamily: "Poppins, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          backgroundColor: "#1f1f1f",
+          padding: "1rem",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.3)",
+          zIndex: 10,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
           {currentSong.pictureUrl && (
             <img
               src={currentSong.pictureUrl}
               alt={`${currentSong.title} album art`}
-              className="w-12 h-12 rounded-md mr-4 object-cover"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "8px",
+                objectFit: "cover",
+                marginRight: "1rem",
+              }}
             />
           )}
           <div>
-            <h2 className="text-3xl font-bold">{currentSong.title}</h2>
-            <p className="text-xl text-gray-300">{currentSong.artist}</p>
+            <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", margin: 0 }}>
+              {currentSong.title}
+            </h2>
+            <p style={{ fontSize: "1.2rem", color: "#bbb", margin: 0 }}>
+              {currentSong.artist}
+            </p>
           </div>
         </div>
-
         {user?.isAdmin && (
           <button
             onClick={handleQuit}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+            style={{
+              backgroundColor: "#933939",
+              color: "#fff",
+              padding: "0.5rem 1rem",
+              border: "none",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor = "#aa5050")
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor = "#933939")
+            }
           >
             Quit Session
           </button>
         )}
       </div>
 
-      {/* Content */}
-      <div
-        ref={contentRef}
-        className={`p-8 max-w-4xl mx-auto space-y-6 overflow-y-auto ${isAutoScrolling ? 'scrolling-active' : ''}`}
-        style={{ height: 'calc(100vh - 120px)', scrollBehavior: 'smooth' }}
-      >
-        {formattedLines.map((line, lineIndex) => (
-          <div key={lineIndex} className="flex flex-col">
-            {line.segments.map((segment, segmentIndex) => (
-              <div key={segmentIndex} className="flex flex-col">
-                {user?.instrument !== 'vocals' && segment.chords && (
-                  <div className="text-2xl font-mono text-blue-400 mb-1">
-                    {segment.chords}
+      <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+        {formattedLines.map((line, lineIndex) => {
+          const direction = detectDirection(line);
+          return (
+            <div
+              key={lineIndex}
+              style={{
+                marginBottom: "1.5rem",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.5rem",
+                direction,
+                textAlign: direction === "rtl" ? "right" : "left",
+                justifyContent: direction === "rtl" ? "flex-end" : "flex-start",
+                width: "100%",
+              }}
+            >
+              {line.segments.map((segment, segmentIndex) => (
+                <div
+                  key={segmentIndex}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    minWidth: "1ch",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "monospace",
+                      color: "#66ccff",
+                      fontSize: "1.1rem",
+                      lineHeight: "1rem",
+                      height: "1rem",
+                    }}
+                  >
+                    {user?.instrument !== "vocals" && segment.chords
+                      ? segment.chords
+                      : "\u00A0"}
                   </div>
-                )}
-                {segment.lyrics && (
-                  <div className="text-3xl font-semibold text-white">
-                    {segment.lyrics}
+                  <div style={{ fontSize: "1.5rem", fontWeight: 600 }}>
+                    {segment.lyrics || "\u00A0"}
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
+                </div>
+              ))}
+            </div>
+          );
+        })}
       </div>
 
-      {/* Auto-scroll toggle button */}
       {canScroll && (
         <button
           onClick={toggleAutoScroll}
-          className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center z-20"
+          style={{
+            position: "fixed",
+            bottom: "2rem",
+            right: "2rem",
+            width: "64px",
+            height: "64px",
+            backgroundColor: "#2563eb",
+            color: "#fff",
+            borderRadius: "50%",
+            fontSize: "1.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "none",
+            boxShadow: "0 4px 6px rgba(0,0,0,0.3)",
+            cursor: "pointer",
+          }}
+          onMouseOver={(e) =>
+            (e.currentTarget.style.backgroundColor = "#1e40af")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.backgroundColor = "#2563eb")
+          }
         >
-          {isAutoScrolling ? (
-            <span className="text-2xl">⏸</span>
-          ) : (
-            <span className="text-2xl">▶</span>
-          )}
+          {isAutoScrolling ? "⏸" : "▶"}
         </button>
       )}
     </div>
