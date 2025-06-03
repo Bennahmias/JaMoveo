@@ -1,101 +1,108 @@
 import fs from 'fs';
 import path from 'path';
 
-// Define the structure for a segment within a song line
+// Define interfaces for the new song structure
 interface SongSegment {
-  lyrics: string;
-  chords?: string; // Chords are optional for a segment
+  lyrics?: string; // Lyrics might be optional for lines with only chords
+  chords?: string; // Chords might be optional for lines with only lyrics
 }
 
-// Define the structure for a single line of the song
 interface SongLine {
-  segments: SongSegment[];
+  segments: SongSegment[]; // Each line contains an array of segments
 }
 
-// Define the main Song interface with processed lines
 export interface Song {
   title: string;
   artist: string;
-  lines: SongLine[]; // Store processed lines here
-  image?: string;
+  pictureUrl?: string; // pictureUrl is optional
+  lines: SongLine[]; // The main content is now an array of SongLine objects
 }
 
-let loadedSongs: Song[] = [];
+const songs: Song[] = [];
+const songsDirectory = path.join(__dirname, '..', 'songs');
 
-const songsDirectory = path.join(__dirname, '../songs');
-
-export const loadSongs = async () => {
+export const loadSongs = () => {
   console.log('Attempting to load songs from:', songsDirectory);
   try {
-    const files = await fs.promises.readdir(songsDirectory);
-    console.log('Found files in songs directory:', files);
-    const songFiles = files.filter(file => file.endsWith('.json'));
-    console.log('Identified song JSON files:', songFiles);
+    const songFiles = fs.readdirSync(songsDirectory).filter(file => file.endsWith('.json'));
 
-    const songs: Song[] = [];
+    if (songFiles.length === 0) {
+        console.warn("No song files found in the songs directory.");
+         // Depending on requirements, you might want to throw here if no songs are found
+         // throw new Error("No song files found.");
+    }
+
+
+    songs.length = 0; // Clear existing songs array
+
     for (const file of songFiles) {
       const filePath = path.join(songsDirectory, file);
-      const fileContent = await fs.promises.readFile(filePath, 'utf-8');
-
-      const fileNameWithoutExt = path.basename(file, '.json');
-      const title = fileNameWithoutExt
-        .split('_') // Split by underscore
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-        .join(' '); // Join with spaces
-
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
       try {
-        // Parse the raw JSON data, which is an array of arrays of objects
-        const rawSongData: Array<Array<{ lyrics: string; chords?: string }>> = JSON.parse(fileContent);
+        const songData = JSON.parse(fileContent);
 
-        // Process the raw data into our SongLine[] structure
-        const processedLines: SongLine[] = rawSongData.map(lineSegments => {
-          const segments: SongSegment[] = lineSegments.map(segment => ({
-            lyrics: segment.lyrics || '', // Ensure lyrics is a string, default to empty if missing
-            chords: segment.chords // Chords can be undefined if not present
-          }));
-          return { segments }; // Each inner array becomes a SongLine
-        });
+        // Validate the structure matches the Song interface
+        if (
+          typeof songData.title === 'string' &&
+          typeof songData.artist === 'string' &&
+          Array.isArray(songData.lines) &&
+          songData.lines.every((line: any) =>
+            Array.isArray(line) &&
+            line.every((segment: any) =>
+               (typeof segment.lyrics === 'string' || typeof segment.chords === 'string' || (segment.lyrics === undefined && segment.chords === undefined)) // Allow empty segments, although unlikely with this structure
+            )
+          )
+        ) {
+          const loadedSong: Song = {
+            title: songData.title,
+            artist: songData.artist,
+            pictureUrl: songData.pictureUrl,
+            lines: songData.lines.map((line: any[]) => ({
+                 segments: line.map(segment => ({
+                     lyrics: segment.lyrics,
+                     chords: segment.chords
+                 }))
+            }))
+          };
+          songs.push(loadedSong);
+          // console.log(`Loaded song: ${loadedSong.title}`); // Keep console less noisy
+        } else {
+          console.error(`Skipping file ${file}: Does not match expected song structure.`);
+          // Depending on requirements, you might want to throw here if any file is invalid
+          // throw new Error(`Invalid song structure in file: ${file}`);
+        }
 
-        // Create the final Song object
-        const song: Song = {
-          title: title, // Inferred title
-          artist: 'Unknown Artist', // Placeholder as artist is not in JSON
-          lines: processedLines, // Store the processed lines
-          image: undefined // Assuming image is not in these JSONs
-        };
-        songs.push(song);
-        console.log('Successfully loaded and processed song:', song.title);
-
-      } catch (parseError) {
-        console.error(`Error parsing song file ${file}:`, parseError);
+      } catch (parseError: any) {
+        console.error(`Error parsing JSON file ${file}:`, parseError.message);
+         // Re-throw the error to stop the process if parsing fails
+         throw new Error(`Failed to parse song file ${file}: ${parseError.message}`);
       }
     }
-    loadedSongs = songs;
-  } catch (error) {
-    console.error('Error loading songs:', error);
+    console.log(`Successfully loaded ${songs.length} songs.`);
+  } catch (error: any) {
+    console.error('Critical error loading songs from directory:', error.message);
+    // Re-throw the error so server.ts can catch it and exit
+    throw error;
   }
 };
 
-// Update searchSongs to search against the processed structure (mainly title/artist)
-export const searchSongs = (query: string): Song[] => {
-  console.log('Received search query:', query);
-  const lowerCaseQuery = query.toLowerCase();
+// Do NOT call loadSongs here. Call it in server.ts.
 
-  // Search primarily by title and artist, as before
-  const results = loadedSongs.filter(song => {
-    const titleMatch = song.title && typeof song.title === 'string' && song.title.toLowerCase().includes(lowerCaseQuery);
-    const artistMatch = song.artist && typeof song.artist === 'string' && song.artist.toLowerCase().includes(lowerCaseQuery);
 
-    // If you also want to search within the lyrics/chords content, you'd need
-    // to iterate through song.lines and song.segments here.
-    // For simplicity with current JSON structure, let's keep it title/artist search for now.
-
-    return titleMatch || artistMatch;
-  });
-  console.log(`Found ${results.length} songs matching query "${query}"`);
-  return results;
+export const getSongs = (): Song[] => {
+  return songs;
 };
 
 export const getSongByTitle = (title: string): Song | undefined => {
-    return loadedSongs.find(song => song.title === title);
-  };
+    // Find song by title (case-insensitive)
+  return songs.find(song => song.title.toLowerCase() === title.toLowerCase());
+};
+
+export const searchSongs = (query: string): Song[] => {
+  const lowerCaseQuery = query.toLowerCase();
+    // Search by title or artist (case-insensitive)
+  return songs.filter(song =>
+    song.title.toLowerCase().includes(lowerCaseQuery) ||
+    song.artist.toLowerCase().includes(lowerCaseQuery)
+  );
+};

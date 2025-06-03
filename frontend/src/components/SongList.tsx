@@ -29,7 +29,7 @@ const SongList: React.FC<SongListProps> = ({ songs, onSongSelect }) => {
           <h3>{song.title}</h3>
           <p>Artist: {song.artist}</p>
           {/* Add image if song.image exists */}
-          {song.image && <img src={song.image} alt={`${song.title} cover`} style={{ maxWidth: '50px', maxHeight: '50px' }} />}
+          {song.pictureUrl && <img src={song.pictureUrl} alt={`${song.title} cover`} style={{ maxWidth: '50px', maxHeight: '50px' }} />}
         </li>
       ))}
     </ul>

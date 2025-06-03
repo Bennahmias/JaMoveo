@@ -84,10 +84,11 @@ const Signup: React.FC = () => {
 
   return (
     <div>
-      <h2>Admin Signup Page</h2>
+      <h2>Admin Signup To Jamoveo</h2>
+      <h3>And find your rythem!</h3>
       <form onSubmit={handleSignup}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
@@ -98,7 +99,7 @@ const Signup: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
@@ -109,7 +110,7 @@ const Signup: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="instrument">Instrument:</label>
+          <label htmlFor="instrument">Instrument:  </label>
           <select
             id="instrument"
             value={instrument}

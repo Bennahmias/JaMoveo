@@ -1,5 +1,8 @@
-[
-    [
+{"title": "Hey Jude",
+  "artist": "The Beatles",
+  "pictureUrl": "https://upload.wikimedia.org/wikipedia/he/6/6c/Beatles-singles-heyjude-uk.jpg",
+  "lines":[
+  [
         {
             "lyrics": "Hey"
         },
@@ -105,3 +108,4 @@
         }
     ]
 ]
+}

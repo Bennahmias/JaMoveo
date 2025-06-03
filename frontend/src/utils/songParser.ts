@@ -1,19 +1,19 @@
 // Define interfaces to match the structure of the song data from the backend
 interface SongSegment {
-  lyrics: string;
-  chords?: string; // Chords are optional for a segment
+  lyrics?: string; // Lyrics might be optional for lines with only chords
+  chords?: string; // Chords might be optional for lines with only lyrics
 }
 
 interface SongLine {
   segments: SongSegment[];
 }
 
-// Define the main Song interface
+// Define the main Song interface - Use pictureUrl to match backend
 export interface Song { // Export this interface as it's used in components
   title: string;
   artist: string;
   lines: SongLine[]; // Store processed lines here
-  image?: string;
+  pictureUrl?: string; // Changed from image to pictureUrl
 }
 
 /**

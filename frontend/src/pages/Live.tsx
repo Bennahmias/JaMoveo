@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useSocket } from '../hooks/useSocket';
 import { useAuth } from '../context/AuthContext';
 import { formatSongLinesForDisplay } from '../utils/songParser';
+import type {Song} from '../utils/songParser';
 
 const Live: React.FC = () => {
   const location = useLocation();
@@ -30,7 +31,12 @@ const Live: React.FC = () => {
 
       const handleSessionEnded = () => {
         console.log('Received sessionEnded event. Navigating to main page.');
-        navigate(user?.isAdmin ? '/admin/main' : '/player/main');
+
+        if (user?.isAdmin) {
+          navigate('/admin/main');
+        } else {
+          navigate('/player/main');
+        }
       };
 
       socket.on('sessionEnded', handleSessionEnded);
@@ -45,30 +51,25 @@ const Live: React.FC = () => {
     }
   }, [sessionId, socket, navigate, user?.isAdmin]);
 
-  // Effect to check if content is scrollable
+  // Effect to check if content is scrollable and set canScroll state
   useEffect(() => {
     const checkScrollable = () => {
       if (contentRef.current) {
-        const { scrollHeight, clientHeight } = contentRef.current;
-        const scrollable = scrollHeight > clientHeight;
-        console.log("Scroll check:", { scrollHeight, clientHeight, scrollable });
-        setCanScroll(scrollable);
+        setCanScroll(contentRef.current.scrollHeight > contentRef.current.clientHeight);
       }
     };
 
-    requestAnimationFrame(checkScrollable);
+    checkScrollable();
     window.addEventListener('resize', checkScrollable);
+
     return () => {
       window.removeEventListener('resize', checkScrollable);
     };
   }, [state?.song]);
 
   const toggleAutoScroll = () => {
-    if (!contentRef.current) return;
-    const contentEl = contentRef.current;
-
     if (!canScroll) {
-      console.log("Content not scrollable");
+      console.log("Content is not scrollable.");
       setIsAutoScrolling(false);
       if (scrollIntervalRef.current !== null) {
         window.clearInterval(scrollIntervalRef.current);
@@ -78,31 +79,26 @@ const Live: React.FC = () => {
     }
 
     if (isAutoScrolling) {
-      console.log("Stopping auto-scroll");
       if (scrollIntervalRef.current !== null) {
         window.clearInterval(scrollIntervalRef.current);
         scrollIntervalRef.current = null;
       }
-      setIsAutoScrolling(false);
     } else {
-      console.log("Starting auto-scroll");
       scrollIntervalRef.current = window.setInterval(() => {
-        const { scrollTop, clientHeight, scrollHeight } = contentEl;
-        const reachedBottom = scrollTop + clientHeight >= scrollHeight;
-
-        if (reachedBottom) {
-          console.log("Reached bottom, stopping scroll");
-          if (scrollIntervalRef.current !== null) {
-            window.clearInterval(scrollIntervalRef.current);
-            scrollIntervalRef.current = null;
+        if (contentRef.current) {
+          if (contentRef.current.scrollTop + contentRef.current.clientHeight >= contentRef.current.scrollHeight) {
+            if (scrollIntervalRef.current !== null) {
+              window.clearInterval(scrollIntervalRef.current);
+              scrollIntervalRef.current = null;
+            }
+            setIsAutoScrolling(false);
+          } else {
+            contentRef.current.scrollTop += 2;
           }
-          setIsAutoScrolling(false);
-        } else {
-          contentEl.scrollTop += 2;
         }
       }, 30);
-      setIsAutoScrolling(true);
     }
+    setIsAutoScrolling(!isAutoScrolling);
   };
 
   const handleQuit = async () => {
@@ -133,22 +129,37 @@ const Live: React.FC = () => {
     }
   };
 
-  if (!state?.song) {
+  // Type assertion for state.song
+  const currentSong = state?.song as Song | undefined;
+
+  if (!currentSong) {
     return <div>Loading...</div>;
   }
 
-  const formattedLines = formatSongLinesForDisplay(state.song);
+  const formattedLines = formatSongLinesForDisplay(currentSong);
 
   return (
     <div className="relative min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-gray-800 p-4 shadow-lg">
-        <h2 className="text-3xl font-bold text-center">{state.song.title}</h2>
-        <p className="text-xl text-center text-gray-300">{state.song.artist}</p>
+      <div className="sticky top-0 z-10 bg-gray-800 p-4 shadow-lg flex items-center justify-between">
+        <div className="flex items-center">
+          {currentSong.pictureUrl && (
+            <img
+              src={currentSong.pictureUrl}
+              alt={`${currentSong.title} album art`}
+              className="w-12 h-12 rounded-md mr-4 object-cover"
+            />
+          )}
+          <div>
+            <h2 className="text-3xl font-bold">{currentSong.title}</h2>
+            <p className="text-xl text-gray-300">{currentSong.artist}</p>
+          </div>
+        </div>
+
         {user?.isAdmin && (
           <button
             onClick={handleQuit}
-            className="absolute top-4 right-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
           >
             Quit Session
           </button>
@@ -158,8 +169,8 @@ const Live: React.FC = () => {
       {/* Content */}
       <div
         ref={contentRef}
-        className="p-8 max-w-4xl mx-auto space-y-6 overflow-y-auto"
-        style={{ height: 'calc(100vh - 120px)' }}
+        className={`p-8 max-w-4xl mx-auto space-y-6 overflow-y-auto ${isAutoScrolling ? 'scrolling-active' : ''}`}
+        style={{ height: 'calc(100vh - 120px)', scrollBehavior: 'smooth' }}
       >
         {formattedLines.map((line, lineIndex) => (
           <div key={lineIndex} className="flex flex-col">
