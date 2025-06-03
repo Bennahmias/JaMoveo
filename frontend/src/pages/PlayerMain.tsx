@@ -275,7 +275,30 @@ const PlayerMain: React.FC = () => {
       >
         {isLoading && <p>Loading available sessions...</p>}
         {!isLoading && sessions.length === 0 ? (
-          <p>No active sessions available</p>
+          <div>
+            <p style={{ marginBottom: "1rem" }}>No active sessions available</p>
+            <button
+              onClick={fetchSessions}
+              style={{
+                backgroundColor: "#933939",
+                color: "#fff",
+                padding: "0.75rem 1.5rem",
+                borderRadius: "8px",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+                transition: "background 0.3s",
+              }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor = "#aa5050")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor = "#933939")
+              }
+            >
+              Refresh ⟳
+            </button>
+          </div>
         ) : (
           <div
             style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}

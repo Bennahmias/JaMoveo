@@ -1,0 +1,347 @@
+{
+  "title": "שקט בלב",
+  "artist": "נועם כהן",
+  "pictureUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGRsYGBcYFxkYGxodFhsaGBgbICAeHiggGholHRcdIjEiJSkrLi4uGCAzODMsNygtLisBCgoKDg0OGxAQGy8lICU1LS0tLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAIHAQj/xABJEAACAQIEBAMECAMFBQcFAQABAhEDIQAEEjEiQVFhBRNxBjKBkRQjQlKhsdHwcsHhBxUzYpJTgrLC8RZzk6Kj0uM1VGOz4iT/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAkEQEBAAICAgMAAwEBAQAAAAAAAQIRITEDQRITUSJh8EIyBP/aAAwDAQACEQMRAD8Ac02uTzP4evf9cbBhzmcRKovBuLmxvPPp+WNVrDmMRjp5+Uo0UwymbTv++fxwvrBZ0nY2F/3GCEzcDfbbtynA2Zzq1Bp4T1EQbc5640xRZtH5ZG3La/LGiMwMwf1x6uYvBmD1xFma2xAO/wA/64s8ZdmAryLYBr6pLMb7eow+yHgH1ArV6wpK8aZUtAeNJJkRMj0tJGCv+ywFUipWphVVSCYBMz9mYG28nlguTSePKVVEy7OZG3PBNSVXSGM9f3yxNmqsFkQggGzAWImAT69D1wFTNwQDfaQb8uuM6rmp1c3kH98saVG0jniVjAJO4sRsR2PfAeaS8sGXnxEj8+WFo8ZsPWzVjYbXPxws1bECR9onoSB+Ej/VgyogJVbw21muDzFr9LY0yWVKllqWJIBn7JBIg/GPw5jDdGMkm3tHMTwuVuY1A3BWVBHM7R3tiWppXSNZLCxOgQZk9ZAvvfFjpexiCgtWtXFBniODUATLLqNoMCdhHU4VZX2RNajVqLVplqRZvLBaSoLEybadWlisib3icB65LM20oCDIW1uYbaI5b/MYg4mASBpI5mwFzPpHzw89k/ZapmRUYMEy7E7jUZ3GkdQIkzHK5Fj/ABT2XpplqmYo5s1lT3rAggEArZotYgQPxwqfSs5ZNIY+9IEATI961xYXAtyGFmczRBXzIEkjSLATJ3iBfpO+84a+T9XIDFbzpDNBP3iduW/XvgfN5GoSx0SRDlShgCAWMRwKReTbbAc7Lc1p1cAsRaQs3QTcb2PXfEFTLkX5niax903m+4Mi4BsCcWbwX2YbMVG1OaVNafnM2hmhNgUUe+TBMgwO9sRe03gaUayJQqnMgrIamCxDEmBFMNJAUSO4wL2S5fOF5BSwgEDUSw4uGx4eUsL8O98Zm/LQkqsaoHFDAHcibExET1/HVcvwFwKpWmGDstMABngiTfywYk/d5m4xhy5Xy9SVBqP1chofdjpFgxgRAudQgYAhFM1DZbBZ1EECF1ExzJmAPXGmcMkhlAJYmVC2EbAbKsDb154tPsT7Jpna1VatRqTUwpNFqRDGIAZpAGki2k3MzyBKTxah5ZraVqVUWs9MVtMgaGKCW0lRJWI7DrgG+S9qDECoDqOoBVgmFNtyYB9ec9MSPmGVlhzAUbgaSRygEhiTMi4PPHuUy9Ri2ijUeGLN5dM1IMAQYFjaYJ59sXB/Yen/AHe2cOZLNp1hUSFDBgmnigkgyJhZjDFcz88/cpf+F/XGYn+iVOo/1J+mMw+Sdajhm+kwS0feJjv8IwNWsQBt88TopImL2ljMtExfb7XLtgWshO2+3xG/5fjjLGOHgWdOkpNiLnueeFdLJMrD87EHDAJANz3x4KQeL2t2gY1iN6AVB3vvGC8pltZUCxLKLzHEQJ+E49fLFTK+pvP4xifKSx2gGYO174dqt/i8eF13DNlayElFEVNJ8uoggDeQGvBBmYOJPB6KJXrqiqFHlna6lwZWfuwAQOWo4rWY8brqv+KdMTMLPpMSfngDL+LV01aWcBrnmSeskEz8RhSNvsn4s+WrtT8PdnpoWHmcBWzHWVXWOZnfrhj4jW018smhSzGpxFboqJLafuknSPQYo2Z8Uq+V5ZqEqIAHOZ1T1Jm952x5R8WzNSqhDu1W6oYBNxxAKFgiwJtyxNOZ8LvRyoOYq1mTiUIqkjkEDMw6kk6Z/wAhGFeYzLPkaT1Qr1XKFFqKLu9SUGm2ycugM4rlap4hSJrBcxxEKW06pvAJU7AT9214jATZ6tXqLUeqzvTOpTaAQQbCAs29cC5XRczm9OboUgqnUlVi5EsqroAVTykkT6DCJUX+9W8xReChIF28tQp9bNHcDCV/FK+vzPMbXGnVawJ5Wjfe2Aa1QsSzsSxuSWlid/Xlh6Tc118dps1dVqLXqZdgkJSEqXDfbIhlA943ANt4jA3tdnjl0FCgtOnTZCXYC6iYiB94SJ3323xXKPj2aHD9IcL1OkmP4mUkfE9cVzxXxDWZLMzAyWLyZsbk7ybfLAre+I6ZlaWrwvRlveagwQC3GQdS72bVqG++AK/gGUpZZWda9NqjKPL84gmpUMDgk02Iu11MAdsUin4tmcujGlWdIMlRF+THSw0zP2gLzjfPeJZiqEZ2Z7Rq1XkwVgAwPe2A6eoSnWPoT0my1GgNGXTW1UgDi0iETrLM2okD7G/UXwyrUOYzq1FHl66emw4gaQ1SftCALHbHMsz4vnCy1DmGNRAdPGeANwm3JiOs7YOObqor/W1oqNLhWNy1iW3JAFjeIHbE5ZSC5SLJ7Ge1TZzM0gaCJpy7cQJkcSSANgp4Ldjhv7OZ3zM74hppoqU6lOnKgBncKS7Mef2Vj/LvfFF9k/Gcvkq1UrTq1mqKgTQUICi7LcgxMGbgWwpq5rM0mrVA1Wl9Jd2ZaLPILnWl4glZKmLkG21n8orhfTkszQ8GddKjMEGo6nSwDPV1uGvpYBbHfaL4c+M55kzORpKqFqj1NTFZKpTpEvo+6SxUT0xx9M5nKfl5fVUK8RRS2oWOovpJgwSLGY1DEz5vOVavmNUrCvQJVKoJlQ4JYAEwdQgwDaQCbCT5T9Lc/XWPDso3955uuwhfIy6KeoBqux+Zj4YG8Up1myKUw1N1zFRUeoi6FpUa77osXIVgoY8zqPTHJKVfxBRULV6oWqeNvMZvMJhEEiSvvb7ACOmGeXo1noLl6z1jSWYTXAHFKi3MRY3jlEYVykmytkm3Vs4fo701o0qzKEZVoUUhGZmXieoSFUgD7RHvMbnFd8eqVv7k8xaYLtpr1FlSED1fPqkTAbTJjrA3xRPFfGM07Nllq5iqqhQUFZl4SLh2FyJ5swna8HCvxjN5lUFB3qikunTSdiyAA2gSQVFoBmI9MOZSnNUH9DP+zyvzX/24zC/+8sr/APbj/wAX/wCHGYva9OnVM3q4WAEco2+PTY4xImT70QT6c+XXHtXwssAeYmNxMjnv6Tj3w7JNP1gsJ5kiP3bGU4cOpYkojV/DtbEPtSKeSpU3P1j1nIVCSBwiWeQZIFhyucWHw/IBgRRlQdywMDqAfht2xXfbnKJms4Mm1QK9LLB6LHhXWzS4IFiSqLa1ieeK+Xtp4vFugcn4vmSqsMitWm4OkrTFwtjxLxXPcYZZTPhldhTekQYNKoLqYBsea3s0DY9Difw/w5qVKgq1tCU1HmCLlrFrzcEzvhrkfAfOoN5tU1HLuytTIS1gi7EMABub33xGPk3dOnz/APzYzHc7JsomsyTPOP6AfzxI9RFECzAmbzY74kr5A5UXNj/FYmSRJAnblIvhQ9eZkzO3P9/1xq4bjyhzuZBIv1meva98WL2WzJpU6jhTUc6aamJ+y7k25AL8cVDM6GYKQJ6SYO82nfFj8AzbLrpIF1EAgOxA4TxXGzaXa0HbEZ9OrxYz5SMHt5WRwcwhpTYSp0kT6e93xni+fp5grmKCwbLVi4BMlDaJkKwJ7Ljzx+jWr5WrTYUxP+FpdiWM2mRYWvip+A0fKq5il5gqImgSjypezEiPeCglZBi+Iw12382EkWFqgPW9ouY7YhrZ4qsQZMDaYMG4gW9eo5Y06mZjYXg4hq2iN4JCnbvbacbVx/EB4hmF1QCdgbzBk39B++WIMvWADVNKleJQu5mxVtM3UkkeuC6VE1JJjRIZSYJuLgxHDP641+gNrJAAOrWGMnZZAAHCB8uvbA2x1OEWXqBwoUKNUhlkyFBMmTbnJA2BFxGPapDsUkrMFd9MrJkmTc+7a+/bG9gS1yhO27bDnABkgkW2MXviehkqqqpCAkCbwGm0je/OJi4HLE3KTsWyFng4Y1Cak6NUXgDUSxMkixAM2iwxaaSMCFgwBY9IsBvJtz7YAp5NFUllZgxJIH2B9kaZk233uemFngeXWqCNTFEZuEkjeCoMGLXmB0AxjnrLf9M89Zc/h5lKaBqzUwNRIJjmQgj4Ez2JnEGopToU2JFRjTBuSZkFr7wbrPfAdXL0ElfLqU2lVplWYlxIACXPIXU7C+JamRpB6a+Wx1ljLNquoB4tRN7zIvjPU/39J1P9/Rg1GaqtIsjAJzlmEtEbQAJnnjTKBw1ctceYSgkkAaFt2M7jCXxul9atKmXVnAJ06yTJfUdWq0HRPXVvtjfJeH5hSphKarpKpq1wwmfvauIKJYncztiphLJun8Jrs4WTTQvuShYm19QO1ovy6dYxMV+sF76TCzcyQCY6CwnvhHnstmHNwGLhgbKoQTIMgxJtf8MDZXL1g7054rSA2pgIEMTyknr0tYYf1y9UfXL7NvDqFRa9dtKslSp7ymSpVQRqHTii0wQOuKv7TUwMyFVydIHCSWFOSzFR256e4GJPF/DGowQrs1QlAQ0CY4VhZJaxN7W9cR1/CqyrqqUkCJchSC4G558hBieXxxWGMl3teMxl3tn9/j/aZj/X/wDBjMI/Npfcf/V/XGY6GnDtqqJtcen7F+mG2SygqC7NAsRN7bC8wMe5Tw4MLjTO8e967Qs2tfDenSAsBHw/S2Me2WGBJ7Te0C5NEA0Go86Q7aEVV9+o5AkINrCSSAMcw8T9ocnUzJzDDMVaxj62kRQVYXSNFN0YkBfvm55DEPtv4qaudrkmyv5SibBaUqB85b1Y4qtZ/mOYxprjTbH9X7Le1dOqyUabVtTkIupVnUx0DVpIUgzuB6jHVMjljRorTVtZUXY/aPM/PYdIx89+E5lw61F/xEYNTJSVL04YKT0PP1+OPomhXFRFddnUOPRgGH4HGdxmPK887lNVXPFfDXqSShEkkwpEjqdoPw54ra5GoSViI66QPUk2+G9sdDzGSVwASwjaI5bctv0wlz/hRJ+rZiSJgpJAiJ0wCefUYcyctx0qVKjSoqeEtUJnUTNvuibBR1iepOPcqCra5ZR91eanflvci+Jc6CJZ4ZhuHHFPof3fAv0vVJLXIuDAj1/cYsY29wg9pfat1nL0dawNJZ9AIB+6EsBGx77YU+E5FwutGZXTiQLt3BHOQAPTBXtjR+vRpkNRpFew0liPnPzwvTxNljSSo68vTBhJI68rbeVp8KzzVJleMDiQA8xYi3uteL8iDhlTpKw4hy93/Kd42i8YqeX8QJU1ft5ePMj7dGs0Ha5CVIb0qnD4VJ0l2kkSWDArsSdoINvx74GOWOuh9YAmAYI37DeAJjmfhgVK6tKg258gIA26jcEi4/HANeusABmgGTYEzvI5Hny584xBSzCX0pqk8Km95iBaSCGJKxf4DDKYmGRApVNLAKpgUxBKi5I0tJ4RIHSR2wzqaVY1WgDQF1E/5maAPltvPbFdp50uQpIYGYIIYw0FTJ2IO/pfB2ZUFaaqwOlFItwgq7pMgybrBA+OMs/H8rvZZYbuzP6T9UainkzA2tuR8QbXwo8DoaUYI314bUwJC6pAFx0O/qOVsa1c61SlUpCBCSGU7hSCesEgH54UZclmKkk6gwgjVeCVm0AyB2wsfHxRj4+KtXiNdYVGIDu1OFm4OtST6ATe3442rkGtSutg5j7VwPl+dvXFNy+Um/ukmLDUp23HX0MYYDJhZEAn0iABJmVmDYYX069j6ZPaxUiPPqHVJKppEmALhgOUkoCYvYdMaZwMQqgqvGDGq5AOoybR1jcmBiuZPMkKA2ltJDEGQATZPekCNza3fEjVtRYNCk7hbD17jhm1oHPDni97L6tVZqjTVXjAADMUmJnhBPYSf2Ma5KqhaoVdWYsJgg2VVAHcAztsScVYZIlqagozPVCga9yTpBblFyxMcrYZUvZ0sqsrrqJRtYDaQKreWkQptNz2E7Ym+Hjsvqn6MyINNqdOrXRmCHQsANIgEkzxGCQNjGre5wL482hKglEDmTcs9TVAYRA0iBE3sOWB8t7NVdHDUSD5ZBbVLeYRpYWkWbb8cD+J+DVqVN2Zke3LUeHXoMcMDST9rnMbHFTxze9q+rne1Q8wf7J/xxmPPLP7bGY3avprwzKvTUK2iBMaVI3Nt/0viPx/xT6Nl6lbcqOAdW+z8BueynDEYqv9oXh9SrlmVGCotKq7uQTamFYKAIHFtqmwBsZOMcZynWo4XmMwzszEySSSfWST6k3+ONqXF64GBxujRjRUFZQ6KqNyDCfjY/hjv/sVmhVyNA3lFNJp3miTTP8AwzjhKAOs8+f647R/Zk05Kf8A81XmOZB+G+FTWWvTkbT1ETPbffAS5BAwZQNfYlSeQBKsJv1EfnhnjWoki4kcx1xNRYQ+N+Feal6gDcmZRJgzEkWWxjfuTihVfDgn+HxsLMAwUDVbYbHHSkeCRVYCSTIVlJEWFiQ1jEjFT9o/EM1SqeTk1rmNLFgPeJJJuRATTaTud9hit8JwwuWWo5Rn861R5OyKKS/wpb4k9fTAwFgbRtO9+hHTvhh4t4VWp161OoFDhiTDqw4uPcc+LpbAQo6JOsdxEg7zimozwJ0XMIrgqlQNSqwZGiopBPwgN6qMMfDNavUy1Uw9GafpD6CR24iwk7RhAawBXTIIM7zHod8WXLJuC7jzW1aiwZtgqyeYHDbouELrSTOeGELOrUZ5QIB909zcTfBNLw3SS1SVeTEQGQglTuILQNxG5vgunmCogFojeZMGd4EEHf8AcYizCBnDMwBjaY1HlB67bzyjfAy+VL1Vp06NtJ3vBUwGIUAgBpna4vzxlQlDSAh14gpWGPvEkWMH39xO3bENcuWIIAWYCA3PFYm0m4m89BAw0yVMoqKyyfMZgCQsatEiZ3MTA5nDW8p0wX1JCzIhT95dyJPFMiItbrgSjlRS3gleIgmLryJE9j1vvywZUrl2uYVIEA8KgadIE+7AFwAdjtGNM0kaRMrGqAdUuSAbyDxAqbC89sAh17C+GJVzml0FVUVmKlAyAbIZ5NMRziRiX2O8FWrU+kZikhp1G8taTyo1NdgFIiKYkBQPeJvwk4QmtoJAID2nSSvLfUD3uuDVrUxTBZGYAU20IZgrrLgQ4jXK8QHM74VCweHex6cNOs1UEZmrSXhQyio1QPLXAIUCepiDOrCzNezfnZnJp5tUjMUGzDl1UQF0lgqDmQQApJiZvgQZvKJp1K4uuqZLERpMw0ieAkdoIPJdlFpcKNRJcyFuNQBNPQs6rwoqAiw4onngI/yXs6q+I5Ki1NqoqU/OdawRiikPw8I08MKNX3iO2GXiPs5TrDLikPKpquZdmpU9DnyngUVpiVDcpuToNsVillqakMmXdVBbUoEORSVBoBVoI+rqmxsHXsMS18mrUn8nKOlQMpUsFG7ENp4uG6kFrmxJOkgYAYP7CUwXY1cy6UxRU00KtVptUgsDwadNNWDe4NztfGntJ7P0hkVrAMj08tRZ1pinDvWYkNWW7W3m0EmJ5LcvlsuxZRl25q+oKApAJKkF+OAdTEmOZnUIF8RySU6LMcq4IVIqMqhVZfKSGAczJ8wiRILL1wGompfvf+Zv0xmCtNP73/kTGYelPpbWZG0c+RxX/bsBcjmapnhpkRYyCQsdhc/PFgUzMTbsR+e/wxW/7S//AKZmfRB8DVTGHj38kXpwfONLlgIBNhb+WIgcSOMQkY2VBWVraT+eLz7B+0f0WtxGKFUgVP8AKdlqdo2PUegxz9ThjlKwPCcBx9LE4wYpv9m/tCK9AUHJ86gALmS9PZGnmRZTzsOuLjqxFLpFnctqUiB8eXT998c89pPahqGZemNWlKaLCmR5pJLgBjCrEe70746ZWOxxwT2tVhVqzIY1628yB5rBb8rD8MGpVeOfy2Se0OcdsxVdlKs51FZn3gLz3wqhm/64sGcy4rFgOKooAmQdWmZAjcEEehHzUq9sXFZ46qMUtO++Ll4DmNVBTuaZ0R1iCv4HFMZsWL2LzEVWpsYFRZBOwNO/xsT8sNnl0b1FJkEGBz2IJ/5f3bHtGmViDa4kxAIvbrtt+eJ88qKQikHqBqUSdyTvJ2tfEByzFgCNIFwJ37Ebx1wM3lGrT0z7521hIK9gWB1QOs+o5EVVD8QZYPI+/DSCYY6QABsCJjkMA52iyAlmtqnSDGw5kbW/PAiUqlbiYMRZVPaT8gL7/rh1ch9WosFOmWKlYDFWDaR71lMWESI+NsaNmVXSdJ1MLbgWJi+w/kDcCYxD5SKioao8w2skyD9kabGCg25nnOF2WyU8b02Ez9oRKzAIPPva0b2xIEU9LataiLsuoiRBPDO8TeT1GNsuAalTWwT6shXNgWCjQAZ2LHaIAG+A9am5EkTcRInrzaCRuYxvlPEWp1KbaA+ncRKsOfxItY7YC0Ny+VpcDNX4+AshZFCzIYkm0AaW6niG5XEuaSkroVqmWddVTWhNNCAdVgQrcRNiwGnrOJB4vVqBTYMs611NpfUoBJUDquvexG2Bh4ufNarpU610EM5+zcCQBKGLpziZjcMZqV4c5vSDfWz5dHUVSy1YhJUhSogETqDbLj0eIy4U5wBCFO9JzP1gdYggqGRYtB8xiJGy+v4i1SrTDWVDUrQxNSXo01ZQZKyfqdxca474bUcu1I1Yq0tRaq9y4QEqwb7XFC0yRO0sBJjACsZjLeawObGh11s5Wg41Oy06oEqRD0wViIPCLi+IfEMzTamS2cNVyqnTKGSGpl1ELNiWYcjDGd5cUMxVarVpwF0GmZaQSKiG7rrAWmFHuSeMzYmAH4tqak5aoADTQtT0kGFqA6dMyrTUCMJt3AwbJRfplDo//pf+7GY9/vBfur/qP649w+VvpPXzF/nipf2qZzR4dUHOq6UxPrrJ9YTFnqsQIF52t+n7tive3XszUz1KlTSqtMo5fiUsGOggAEEXv+OMcL/JnenC8asMYZG4vzHpy+eMGNltRj1XIMjHpjGpwgsHgfi70KqV6fvoZ07BgbMp7MLdrHljvfhHiNPMUkrUzKOJHUHYqejA2Ppj5ry9WDjoX9m/tJ5FbyHMUa7WJtoqbKf4Wsp76T1xNiu3Xql4xy/+1fwJFNPM06beZUZlqhZIYKkhoEwbQTtfrjp5Jn0wLnYp0K2hQsU6jQsKCdLEm0C554U7RvXL59XNrSJek2ygAQYJaZsY2sfh2wqJJM3JNyes3JxtVWF9Bv6DFm8d9kXyuQy2YbV5tRz5g5ItRZpL/EApnu0YuLyy2q5Qi5t/THRvDfZhcvTVyHNUopbUIVfMUNpXTJ5m5+70nFKy1AaTzkGfljpPiviUGl9WSGpIWbVpTXoAJLbA7C3Q74KWXRYaABhSdRuWM2A33XYx2PTfE2bpBU1bTYTfcibHcHpb54aZvKt7/I7FNhAmIgH+dzgDLsabfWlVc7WgnkOZ07j+mBkXV/CzUP1hCr93nYdNgIG/4YgSAQlERvaCQxPCxMCWt8MMM9mlqXQjQIEH7UmAuoxabE4g+jtAWmwtLEiGvyULsAAes26Yatg0SWKkkuwhjK2DCNMydLESLYl8RfUqqYESAuolpmIYRDACbyJjGgyxWVDK2kgjTBPU368W52wHURbmTIkHn2JubbntfCNDWVGkK0nSOJZChhvM30gnl2x5pY3DIBvcgbE2jnb8sZSqKUK7CxmzRHaQdxe/TGtSiwHvjTPJiJgDkdt4+BjbAqN+Nju0KPeJaDFtIn16YiJDm0SLabje0Xm/bvjynUaSswsgG/Inr8O/XDv6PlNUGo26gFSWaSxkQEuRw3kyXYfZuwGzPi9DU3/+cKdTkyEaA1PTpAINgyowMzOr4xVvGKKlSuWRQG1Mppq8LaFBJj3hq3BvE4Y5fwegGlhWHuAjSxktpV5lDGl2I+K/HX+5qDA6vM8zyg0EHUrsF0ArBADENG8xYkYWvZbLvCc3TZWX6L5mkvVgikeAcTAlhBJQaIAEayRJgCTxWgqrWT6MtJ6YQMV8rnUcKZFwCqN7pvqJ2iZqOSSk9dorIq8KMNYAUyyg2GqXVLMRcxiTxwQjgNXcLsajMAT5rIdQI2CiQBzVhzwb5Cn+avb/AED9cZgf+76v+zb9/DGYrVPdfSDsDaOe5vv8O+JUi23wnl6Y0aJuw3m5/rjcvEGZB6Cd+czEY5ohwX218Eq5fM1maky0nquabxwMGJe3QiYg9MV3HUv7Wc5L0KfIIzfFjpv/AKTjndLw5nBKxYxcGNp3x0dnj0CXHgGDU8NckDSbkDfqY3+OL34d/ZJXb/HzFKmOYRWqH4E6R+eFeFOcLgqnmAB15QLn09Tjsvh/9mvh9MAPTeqebPUcT/uoVX8MPf8AsvkxVo1xQRWoKVphVAUA3BI5lbkHcajiflBtt7KfSPolH6UIrabjcxPBq/8AyaYnviP2yzYpZGuxkyujfc1CEH54bk3wo9qMutbJ5lJBPlMQBuCnGv4riJraa4p4KiDNZc1AGTzqZcG4ILrNufpjtvtp4X9Kydel9rSXXY8dLiX0usfHHChW0gON1hv9Nx+WPpAtMOLzB+Bvztscae1ZdPnXKiVnqNxjqORqCplqbonlSIJpSUleEkjlddu/PFL9pfCPoubq04IQnXTMWKPcR6GV/wB3Fr9gXFSm9E28s6wQOLS4IIBFxBG2xnGlhZcwXmvDQoDBmRvdZA0gqdiCRBtcgyQL4UeJ0QvCXBAiYEsw3WOG4jsN+2LdVplAFddQYFQTIdQbhYEx2HbvgPPeCoq0wlOnZtZcsUkm+o8L8QEncTHcjEIlU1ipVNNMOAzaUYl3iQDJUAjY2iYNt8Rrn0CCYgOBpCRAAPu6jtxbnaeeGvjXhdVASocB5ks6VZGrUxB0KoJ94bx2mMAZfMA8NUfVgFVZiBO42sybWAucBgs54uOJlZpMD3QAImxjSDw2t0wBnK4kyBPMnijsQI/Yw7zVNKY1INQvIUNuRMjc3J3JnCo0mqSwBLRxAgCCdMkSbryPfscBlYdZJGjrEEd/w2jscaecD0JE2DHl8MNV8N0iSBe+9m7W25/0wxyvs7JRwNSMAxBZhGxCmFm+oC07/MVtVaTAmSABM30wJG/e3fBBzDUzTYQrBgQYBkggruL3EYueW8Q1yyUqWgllMGwd3Davd4UZngLEnmCBKrz4bUDPUCJdAjKX90qy6jOg/Vkppa0xUiZIwFtXD7S1VXRTamqAMAqooChp1D0ud5MgHlOGfss2rWTWFEhssAGCjUE4EmTyCD1Pyw2qZhlYA0aQ1amDl7gUgjVCWFP7tJWEXAgQCcA5Ok9Emg9NHcHz+N290sjRCpx1CF34gBN4kYA3Z2qpoqV1UulPVenINRtb0wezgId7LafdxF43UZ6Tk11fUKZgGnpJ4TCw0m9R4973CZvIJo038528um+1MU3qAjUlNahCcBhShIAJHE/pgLxnL2dmVEZWpAwxMN9cyiPKEylWTxD3RflggUb6z7rfjjMb+cfuj5YzFE+l9AmWAP8Au/8AXG1Q2/pyGPVvyuOh64yoDBOm/Ln+PyxyzchOSf2mE/TIJn6pI5b6jt6zgPI0QuSpnm+YrN/oSig/GcGf2kUyM8zFtWqmkCPdABAHzkz3xCFjJZOSLnMvbkDW0/8ALjr8fc/3ov8AlL4Fkkq5mjTcwC4+JWXA9TpjHXxVi56nkT/K2OTey4nO5b/vJ+Sk463TOJ8//tU6YF59e2NnUEXx6xPSfl+uPCs7z0j1xheKbUgDtjWtTFRGWZDKy9uJSP549qTaRM7wP3bCb2k8aq5ZadalRNZBqFRRykDSxESYIiP8xw8cbuJrhgEKR0EfIY+hfCJ+jULSDRpEmbk6Fm3w64+es5mQ71HIVdRZoA0gEySI5DH0XlmHlUgq6Yp04F7DSLdTAtjTJV6Uf+1bKDTlq3PU1I77MNa+l1Pzwr/s8qD6WFb3aiMvLcDUOW/Di4e3+RFXI1QILU4rLtP1Z4gP9wtjm/srnCuby+iWPmpZQWsTDbctMk9gcX/yU/HWfEckLlTLgqVEMCL7CANQvtyk3GMAqMRoLBUBMEzJAuAqmWvtqMCRAPI3NUjqldWoR1gi9gRYet98AjOnVpg6d51QeI2gwJiRt17YlmiqeahaQInUTMqIsbMODVa21vXCnxXNUqnvLraOJGTyyAIi7WPreeW+HZrazsYEyBzm/K5j+eFebphQ06QxJbTZmIiI4ri53A+WAe1bqUa4JLVuCnEK50qkLvrAAdQLE8icR1/DtaVSpllkFhcXEHYhTyI5euLBUyn1JUAuHnhBOlBpE3j6xgTeJ2NuiYZaolMEVTTQvB8ykshRGlViCCIET064a4TZZmLaGC9IDC1toG8/kZGCmqaQ0OwYQN4+R5XAFugwbn1o1FieKPeBW8GDO1+UTsThBXaASZMbKTbn05SNPr1icIwVapUSwqPclpDtuwgk394jmb4iTM1Fga3mAFJdhADCBJNvdH4YI81DLOoJmeGYv32J+J22xDWQbJfisTffkIifiPzw9HElPM1GIJqNKyQQxLKYloIMiefXEboQ5K1SJABhiCRYaZ5jlfGqkiwXUdo4vwho3ixnbHlJI94CNgoiWiLf5N45nDNOWrMIFSoyx/tCZ3gATe1sL81Xq3k1WBaNJZyLEkc9hMweZOC0QswO143gDt0tjR3FNyCSzG5K3jVfnzgz8cLQVH6Q/wDm+RxmG/mr90f+n+uMwxp9Biv0gWkH+ny+eNTmDEGB0kzE2Ed4wDVrRcbyL7W/f54BzjSGBggX4piRzAOwxj8Yw+Tn/ttk69bO1GpozI2mDIjhULG5IHbET+Evl0pq76iyl4EwktBUfET8cX4ZUAzYmJI9NtsJfbfSWoGQD5bSsyQAReekyPgcbeO/yOXgD7Gic9l+xc/Km/6Y6ulcAdI3m3x9O+OPewfidM+IUJDCSygmIlkYLz5kx8RjsFakPSOnXE+S7y3GnplWupA2PQdfniIZxVIW87i0xF433t/1x6oC7T1O/fef549qNJBBibAm1+XLY/sYz17LbTMMSDpFxO4ZefXltvvGB0aqVZWUGZgAyb9J/fzxvWeoQAsG1iGgg/KPngDIZmswBdII2LFVJAiCQswJ/rGLkTSfxH2cpVGmpTU35iTOLXlc7q396LgW5GIH72wJm6hFyQJ5iPlJkCfTAHiWWWqjIxZATIdGKsCNiGsd/wA4wXkS1ntv7SLQyrQRrqjTTAi02Z9oICk9ZJEY5N7PeKDLP5ymGpw6jssysdCsg+uH/ivsXVLFjmDU71Axb5lsWf2X9nsogUHLoaqmdby7Me0wAO0DD6i5pfswW95fxMC/XphDn8rNSaYS4uVJPZtrxuTGHGoGxtM9eRuDbfnhVm8us2UkbEgTeTcwb7xbAhCjVNSkAKbiBzveJm0GcaZsIywXZYNoZQFdRr2G5gGxtj3J62+riQOnCYBEHuPWYxJk6BAIRS5+0Q2k8h70XPWYnAA/iWeKuKmkF2YDXDvwhZ1WXQjHTHxAkclHjnjlbUF8kGi9jVKmYm2kQ2oC3I7icWF82CCCp1TbzQxFhcahYiZ625Yir+DUmHlEFFDBm06d9xuC1xAgHpa2HwcquZyh9ZpLoCwVmp1Fkcd4NgQdvW2BD4WkFdKtIGoqFp3BiImDuIEzY4ZeMeyqr5lSmRqM6iQNQsNm3WAOQEYByPhoeS9MFFsrE6ywH2riQQes4LFSkPi3hDUrt5kCDe4gwYm8Wjn0wqXPBek9CJ/CP3GLVnhUomFBZJB4iDHzHxwmz+UQLrKBgxkxIW+4B/oIjDUCp5pT74gA3/OLbf1xsMxNguqAYGqdrnhvqvG/88R1aSkCQ0DYB1gbC0r+741y1JFjS1QRyK/iWVgflgDPMV5DFu51abcwFC26fHEddgTJ+0SQBFzYm/yvgmnRQEaYJmY5cIkFtQU2uQADJONM3qBbssCZtzB+JHP7xwDav/Rl6N/rp/pjMbecO/4YzDDt7U9RFjF5jny6dvwxrmNMyYHS7X9BH7vjdWkmNzyAE/v9TjWisS15JuSeLfeTHpGMmAaqIJvtb598V/208FNfRUFQKyqUI0lpvqmQdzMYf56pyABEW+fzwO9EFQYieV/TY7YeuTlc1q+F1EaaK1GUQQ2mGDC82NoNwe2OneyPi+frEHM0lWmFIkJD1GkQx4oWAL2E7xgzw3w8bnntvJjfb4Ybh7TYLy+1PcHmL4jKtNpdAMiYFtt/ytPU4HzOpACsETYWHqPXE9JYiOe5JseZg/OMZ4ltNv687dsKEiaGIB23iYmPhe2PBTPPufeHMnbbGlGpFxEH1Px5/hgmq9+IHSeg/HnbfFylYEzFIRfVYe6ZN433v6jqMQqg5XF7b/vrGD8/RVVmDEgCOEKPQ8uXx5YFpgKxDc/lt+9sGxI1p09Rgg6WBHxXlPK3LEiZIDleN5iOuJfo4JgEwDYi9/Seh64LGWIUHTcE87nlaxt+mKlTZy2ytawUKB90m/rc/PmcbZ2kpYkl9xME2I2if+mNBltt+tiY+RNjjynBa3K0mLm/KJHfltgBe4CXUSbk8IJIBGoRvsJ/6Y2WojsGCOpMe+DpizAnc9h+RwRWyovqmOkx12PLf8TgcqynTNTSQBOoQLRERIJg3kzN8LZt0zVVrVEUqBq4TIgRa9saVafDKC9iE1SnYgH3eexG2NcytSNSkzchdKljeyzEzyttiClmoJao0gRwtKlTcSARf0E/jh7hGPkjcoo2Puqek/zGA/FPD1rDhqmm0RIgm09pHzwVSqDTxEMNpYFdus2O/YYhq5qNMAQRJ4pE9BcEG45csGxFczdEAVKbl7W5ze9jAB+eEefoaWHGiq/HxFZuQdQWdI546B746wT0Mfp/TFb9ofCaX+JUpAi3ETfmTtcjngjSZKf4x4LPGGDqTOodWg6RFvSML/omkDcttb8D/mtiz/RaCDh1Q0QByMb6TG8b4XZ2gDJDgi54VEmLHnG/IYZ7JFUKQJubs15EbCBM359+2CXpsF2m4AYCRuekgDtiWotNdg5W1zBP6bd8QO2kkLYzzDCJmOkC5tgFpTC/7T/ynGYj+mVeq/I49wxt3OmoCwVOwBIuO/x5fLGgAAEKSAIseu/wtzxq1QkgFhc+7/Se8dL4n0jltOrc252EXv6b4y0xLMwQGaCFEbmL9fxxOcu2lDuesA2Fh3jvgPPUyXJJ5yDJ9d9/hhnUmELbHfpsT6C/5Yo9cDMkG3MCYkX+zf0j0GNqzg7EiY+VoE+p+JxHlkBWPeM/dJI5juIi3MYlShLsYmwFz935mZxnVRNTWV3LAiOxsZiREn5A41rMNIA4ZGwjvaATcY3p0whJJIkfeOn8bAn8caVVXlFv3v8APDxVoFlVIPPvsPj1mbYOFUAgB9Jtw2i+/frz3wqXMKpgh5PKBa/ew/pg+hT1WZmcERB0z6iFEf0wHYMrHUDsBs0gG3e5GFVSnFuhjfvfvhwaJ0xe9xInTOw9B0wCUtDGCbFlERFhFzH6YaWuWTTtMEzYDeI279cF0cyW4ogbEG19uv5zgTJkBIOthqgFiJv3BnT69cT5UKHIN9Q5SRb4WthjScEA7gSdpkj9f64CrU0U6vdIIIIG1xJInY4NcLvN9jJ3nnf1F8Q5jLyRqYARMLeZH3iJB6EAYJU6alxeOQk7Qdtp5WHbGhpggqeICI52vz6Tj3LIFERzMk3A735j+Zx5Xe0iZAkFT+F8FgQU9cxCkne1jGxiZ5DnF+2IxxHYahAa8kaokRpHXcSLR1OJTWckEib3579eU8/UY1ZWbSsAiQ28SVMiBygkRv7uHKNNaNKWKgg6QFsIMsQVBiDERcY1OTi5XSQPtbmANyN7zt8Bidaqmx1TMaSSASDA4us/LGj5kj3FAlrgm8D3jtHpNrk4dMH7rBgNjxbiRvsDe8/LBqGnWpFlGpdRUiLgiVafTn8MB+IZlkbh1sCfssqzy0gRFr8uWFXiTHWrAGLsRpuRItygzzjrtgVISe0ganVfUjaNrgMoIsIFiGtM9+eEWZr6pJgtttBOw+XX44sXiuZ84FaIOscQAU2kxdtge8+mK3W1KSKgCtF5N79PvfCfXDPSFklhz/Ej4Cx+GNSxmIaJ9L4HMm4AEdtvliIFvhgGgehfu1Pkf1xmAdB+82MwuA+hqSkkgXHWDbrzN74n8mxiTHKZN42vw84npj2hSFwdPfeTzud+n8oxLWpsdB0K0GCGYLAg8S2N4J3j1woxpNmRLHe1gum5iBz29cF5j3qYewiZEiAOe929QfxxFXGrU2kk6oEEn037dz6Y38Q0llI0Ke5UTt7o5ix2+ODS4K80aTp90m7REggkk/PYTjemxNh7okc1gW2I5/AfDGFWAA7ggE3UWm/S3PEqowJsAsk3JJve3KDf8IxFio0asgtF4ssXgD5R8euAqldYO4HYRBB378rdPjiB84TcqACSNMbxz+B/LHgpIvuqA0TIF+gO04IaamdJYdY2mO5274Y0GjodiF7/AMvlhZUYnSb7c/w/fbDCgwIU6Ra0mZk2tHpvhGPV4EMdQPp/L4dPxjGiVJGsAwdwwAnSecj5ERgZE1c2EjaCp9DzN+nXE+cFjpgkyTM7Dl3P6HFIKheoxCwCSYJFgfnAthiC32RBHImeHeb4Fq0L6pubEC5m563F8S0TUiCDcWsPniaoS1ebQNucXnb4QPwxH7wtPbkLTt19Zx5SURfuLj5d59cbNTFm1aSN5723+O/bDlKwLU1byUMi+kGRcmAATy3H4Y8zEIp1cN9KniEncXIgC43tgsqpM6QGJFiYMcyB/PAKlmEatLW72BB53i1x0nF7LSCqVEahI/PuIvf8cRaFBOrgVbgkAyD9m5AvPKL4mrUlBgARyjYdup6gYErAxyj1Pp/OYwlQ0puqjTogaSywIvJK84F9564Gy9duJoUGVABloHO4vqIm1xgZFNyZYESArXJBAmIN+37BBqTGpeIcUiZm4B2HPsL4NjTbNaWc8BZT0aNJBIML9qL72M2Jwq8TccSgqy6tDfejStRiRIAAnSbE225YZ1cv9pgQPtAMOGRMkA8I7DCrxBqOtoKklgxMg6l8tAU5amtPDMaxaThVOXEJaeWpsahZpVCy6BwmC9RwQSpVQIFo74Ezvh1OGWlVVyNZJ0mOAMWglocEqbjeZwfmcyhLqNMsWYEkhbvWOmeZgxbpvgLOUeElS4MDUuoPvOkxJN43kc/Ql5ZanZXmcqysyMRM7z0nv/LljxMsbAISBs0R0HF8tu+GmaFKsg1MAW2EyVmdUwTJJIEkDbthLQYlxEsWUyEBUKZ97hECNjNsVi2wk1w1/u4fs/8A84zA8n7/AP6Z/wDfjMVtpy7dRBB2vt0EA2mIudvWME8o1LteTE7jb4zEX64ykCREdx0+G1/0x5nQbQDbqCYmIPfcTIt+cSsKCRVXVBU3uQDEGLm0WuYNtsF5mhcQNjM6eV9gCBOExzTlmAss3YAAMJOqRqMmQNsOHzQJgtFhBuO0ycL5K0hrlokAFd9tP4yQ04ho1CY7HnPbSfztifMnUumTvyn48o/6YDNDQdQIEwCZnh3G3QmfjhZHBSU1J1ECetiZB2E3Fj+OIvLIglZM2gi5FwB3N8TJcxPb15g/MRj2pQ1Az0ienpO2HLsF9chgbHUIkQNiJ/cYlylaRBnuLDuAb2nlyxFW8JS7GWYDfeNxO1/69Me5ZVi94BG1/SQZwU+DNFmLdLQee3YGTviaq03HcSbRvax5d+2IKTAggMG5XgwL2tAkH1xvWckpswm4JG94O0kixwFWZrUAYpr1JYgCxJiy/ieuBMo5KXUiDfSQbHthiDIIAUkbbfO4N/nhbpdDwqpDC8MBEnkJHfrhZCC0ADHmeXIwf5euNrENA3G0S21t8RU65gGCQDp22mbn5DG9RmKTv/Q4UFDCkV96IieUwv8AIRiEq0grcdd7Hlzn+uJjmeLV+Rtf8RiFag7xbvy25fzxQEZymTc23MTPpPfe2Fz0wRcC17j97dxg1EiTaepgdLd+eB69OLjTAsReRHS0fA4DjTL0VutivSRBMzfaBgDxvOVsvDItM0yAFLk6tQ1FhGrcDi2Ii82jBh2uN+v4Y1YJUEVAreXzYAxMDSLzJiD6YBlLZwXJ7QV2WQaMgGxbQYMQZ1xEJUPO633wozgdzOpLWLFUckToMm8sJUAESJ9MPv7sSW+pp3MKUaCfvGORJMBYAOI3yulXHkJUIsbKrRMkEEFWGoSbi6jpgm0fDIkTMFlvSobERF7AmQP4iDbvEnEdVQVgLSm3GoOtCFQji1QV1alkg+6BucOsvSpspimDYyulZXUIMwBqG23f1xIMjTIgU0LDkFUSJjcj89sGqPry/Ve8PBBHDSMkywA1CBy0nhPLa8fHG2ay5SXpahbiVSIYDltIPcdMMfEfIUlqKHUpB2SSzgqbiwH44XeEM+9ZHZvuSqvzFmEG/wAcVNxphjqcq7/2jqfdf/x3/TGYtv0qn/8AZZr50sZh8q06e/2fX+eA/Ft3/wBz/mxmMwp0wqs5P3l9P5nDPx/3k9T/AMCYzGYyq43y/wDhp6/8uPMxu/x/LHmMwXoTsRlfc/3f5DG7cvRsZjMVj2Kjze/y/wCB8KP1P5YzGYeXZ4jl3PoP+XE7bv8Ax/zXHuMwvZUQPfH8K/zwCNm/iH/HjMZhUonyW1b+H9cTr/hj9/aOPcZgFBN7y/D8sL6O3y/PGYzFKF1fdp/xD8sD5v319G/IYzGYPRwPQ98+uNa/+Kv8TfkMZjMEBZ497qf96n/7Fwzof4Z/gXGYzBDvtlX3qnov/EMbJ77fvmMe4zDpklH/ABqn8S/m2DMn/ij+I/8ADjMZhmW4zGYzGrJ//9k=",
+  "lines": [
+    [
+      {
+        "lyrics": "אמת"
+      },
+      {
+        "lyrics": "תמיד"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "D"
+      },
+      {
+        "lyrics": "שקט"
+      },
+      {
+        "lyrics": "ים",
+        "chords": "E"
+      }
+    ],
+    [
+      {
+        "lyrics": "גשם",
+        "chords": "Am"
+      },
+      {
+        "lyrics": "נשמה"
+      },
+      {
+        "lyrics": "לב",
+        "chords": "Dm"
+      },
+      {
+        "lyrics": "תקווה",
+        "chords": "D"
+      }
+    ],
+    [
+      {
+        "lyrics": "תקווה"
+      },
+      {
+        "lyrics": "שקט"
+      },
+      {
+        "lyrics": "רוך"
+      },
+      {
+        "lyrics": "אור",
+        "chords": "C"
+      },
+      {
+        "lyrics": "אהבה",
+        "chords": "Dm"
+      }
+    ],
+    [
+      {
+        "lyrics": "אור"
+      },
+      {
+        "lyrics": "עולם"
+      },
+      {
+        "lyrics": "ים",
+        "chords": "Cmaj7"
+      },
+      {
+        "lyrics": "שמיים"
+      }
+    ],
+    [
+      {
+        "lyrics": "תקווה",
+        "chords": "C"
+      },
+      {
+        "lyrics": "גשם",
+        "chords": "Am"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "A"
+      },
+      {
+        "lyrics": "שמיים",
+        "chords": "Am"
+      },
+      {
+        "lyrics": "עולם"
+      }
+    ],
+    [
+      {
+        "lyrics": "שמיים",
+        "chords": "F"
+      },
+      {
+        "lyrics": "אור"
+      },
+      {
+        "lyrics": "אהבה"
+      },
+      {
+        "lyrics": "שקט"
+      }
+    ],
+    [
+      {
+        "lyrics": "נשמה"
+      },
+      {
+        "lyrics": "שמיים",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "אמת"
+      }
+    ],
+    [
+      {
+        "lyrics": "תקווה",
+        "chords": "A"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "Em/D"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "C"
+      }
+    ],
+    [
+      {
+        "lyrics": "רוח",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "תמיד"
+      },
+      {
+        "lyrics": "גשם"
+      },
+      {
+        "lyrics": "חלום",
+        "chords": "Bm"
+      }
+    ],
+    [
+      {
+        "lyrics": "רוך"
+      },
+      {
+        "lyrics": "חלום",
+        "chords": "D"
+      },
+      {
+        "lyrics": "שקט"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "Em/D"
+      },
+      {
+        "lyrics": "אור",
+        "chords": "Em"
+      }
+    ],
+    [
+      {
+        "lyrics": "שמיים"
+      },
+      {
+        "lyrics": "תקווה"
+      },
+      {
+        "lyrics": "חלום"
+      },
+      {
+        "lyrics": "רוך"
+      },
+      {
+        "lyrics": "כאב"
+      }
+    ],
+    [
+      {
+        "lyrics": "אמת"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "A"
+      },
+      {
+        "lyrics": "תקווה"
+      },
+      {
+        "lyrics": "ים",
+        "chords": "Am"
+      }
+    ],
+    [
+      {
+        "lyrics": "תקווה"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "A"
+      },
+      {
+        "lyrics": "שקט"
+      },
+      {
+        "lyrics": "חלום"
+      },
+      {
+        "lyrics": "אמת"
+      }
+    ],
+    [
+      {
+        "lyrics": "אור",
+        "chords": "D"
+      },
+      {
+        "lyrics": "גשם"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "Am"
+      },
+      {
+        "lyrics": "שמיים",
+        "chords": "D"
+      },
+      {
+        "lyrics": "לב",
+        "chords": "Em/D"
+      }
+    ],
+    [
+      {
+        "lyrics": "לב",
+        "chords": "C"
+      },
+      {
+        "lyrics": "תמיד"
+      },
+      {
+        "lyrics": "אהבה",
+        "chords": "Am"
+      }
+    ],
+    [
+      {
+        "lyrics": "רוח",
+        "chords": "Cmaj7"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "A"
+      },
+      {
+        "lyrics": "עולם"
+      },
+      {
+        "lyrics": "תקווה"
+      }
+    ],
+    [
+      {
+        "lyrics": "אמת"
+      },
+      {
+        "lyrics": "גשם"
+      },
+      {
+        "lyrics": "רוך",
+        "chords": "A"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "Cmaj7"
+      },
+      {
+        "lyrics": "חלום",
+        "chords": "Bm"
+      }
+    ],
+    [
+      {
+        "lyrics": "גשם",
+        "chords": "Cmaj7"
+      },
+      {
+        "lyrics": "לב"
+      },
+      {
+        "lyrics": "רוח"
+      },
+      {
+        "lyrics": "תקווה"
+      }
+    ],
+    [
+      {
+        "lyrics": "אור"
+      },
+      {
+        "lyrics": "אמת"
+      },
+      {
+        "lyrics": "רוך",
+        "chords": "Em/D"
+      },
+      {
+        "lyrics": "חלום"
+      }
+    ],
+    [
+      {
+        "lyrics": "חלום"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "רוך",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "גשם",
+        "chords": "E"
+      },
+      {
+        "lyrics": "ים",
+        "chords": "Dm"
+      }
+    ]
+  ]
+}

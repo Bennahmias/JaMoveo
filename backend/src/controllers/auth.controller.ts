@@ -24,12 +24,10 @@ export const register = async (req: Request, res: Response) => {
     const hasNumber = /[0-9]/.test(password);
 
     if (!hasUppercase || !hasLowercase || !hasNumber) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Password must contain at least one uppercase letter, one lowercase letter, and one number.",
-        });
+      return res.status(400).json({
+        message:
+          "Password must contain at least one uppercase letter, one lowercase letter, and one number.",
+      });
     }
 
     // Check if user already exists
@@ -92,12 +90,10 @@ export const registerAdmin = async (req: Request, res: Response) => {
     const hasNumber = /[0-9]/.test(password);
 
     if (!hasUppercase || !hasLowercase || !hasNumber) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Password must contain at least one uppercase letter, one lowercase letter, and one number.",
-        });
+      return res.status(400).json({
+        message:
+          "Password must contain at least one uppercase letter, one lowercase letter, and one number.",
+      });
     }
 
     const existingUser = await User.findOne({ username });

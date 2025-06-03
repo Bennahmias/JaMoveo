@@ -1,0 +1,160 @@
+{
+  "title": "רוח של חורף",
+  "artist": "דנה לוי",
+  "pictureUrl": "https://i1.sndcdn.com/artworks-000062457554-5egg04-t500x500.jpg",
+  "lines": [
+    [
+      {
+        "lyrics": "רוך"
+      },
+      {
+        "lyrics": "נשמה"
+      },
+      {
+        "lyrics": "שמיים"
+      },
+      {
+        "lyrics": "רוח"
+      }
+    ],
+    [
+      {
+        "lyrics": "תקווה"
+      },
+      {
+        "lyrics": "שקט"
+      },
+      {
+        "lyrics": "ים"
+      },
+      {
+        "lyrics": "אהבה"
+      },
+      {
+        "lyrics": "עולם",
+        "chords": "Dm"
+      }
+    ],
+    [
+      {
+        "lyrics": "עולם",
+        "chords": "D"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "Em/D"
+      },
+      {
+        "lyrics": "שקט",
+        "chords": "F"
+      },
+      {
+        "lyrics": "גשם"
+      },
+      {
+        "lyrics": "רוח"
+      }
+    ],
+    [
+      {
+        "lyrics": "אהבה",
+        "chords": "G"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "Cmaj7"
+      },
+      {
+        "lyrics": "לב"
+      },
+      {
+        "lyrics": "עולם",
+        "chords": "A"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "D"
+      }
+    ],
+    [
+      {
+        "lyrics": "רוך",
+        "chords": "Em"
+      },
+      {
+        "lyrics": "אור"
+      },
+      {
+        "lyrics": "רוח",
+        "chords": "E"
+      },
+      {
+        "lyrics": "נשמה"
+      },
+      {
+        "lyrics": "אמת"
+      }
+    ],
+    [
+      {
+        "lyrics": "שקט",
+        "chords": "D"
+      },
+      {
+        "lyrics": "נשמה",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "שמיים",
+        "chords": "F"
+      },
+      {
+        "lyrics": "גשם",
+        "chords": "G"
+      },
+      {
+        "lyrics": "עולם"
+      }
+    ],
+    [
+      {
+        "lyrics": "עולם"
+      },
+      {
+        "lyrics": "גשם",
+        "chords": "Am"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "Bm"
+      },
+      {
+        "lyrics": "אהבה",
+        "chords": "F"
+      },
+      {
+        "lyrics": "לב",
+        "chords": "C"
+      }
+    ],
+    [
+      {
+        "lyrics": "רוך",
+        "chords": "Em"
+      },
+      {
+        "lyrics": "נשמה"
+      },
+      {
+        "lyrics": "כאב",
+        "chords": "C"
+      },
+      {
+        "lyrics": "תמיד"
+      },
+      {
+        "lyrics": "אור"
+      }
+    ]
+  ]
+}
