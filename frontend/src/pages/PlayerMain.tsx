@@ -8,6 +8,7 @@ const PlayerMain: React.FC = () => {
   const [sessions, setSessions] = useState<
     Array<{ id: string; participants: number }>
   >([]);
+  const [activeCount, setActiveCount] = useState<number>(1);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(
@@ -41,6 +42,21 @@ const PlayerMain: React.FC = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    if (!socket) return;
+  
+    const handleSessionCreated = () => setActiveCount((prev) => prev + 1);
+    const handleSessionEnded = () => setActiveCount((prev) => Math.max(0, prev - 1));
+  
+    socket.on("sessionCreated", handleSessionCreated);
+    socket.on("sessionEnded", handleSessionEnded);
+  
+    return () => {
+      socket.off("sessionCreated", handleSessionCreated);
+      socket.off("sessionEnded", handleSessionEnded);
+    };
+  }, [socket]);
+  
 
   useEffect(() => {
     if (token) {
@@ -296,7 +312,7 @@ const PlayerMain: React.FC = () => {
                 (e.currentTarget.style.backgroundColor = "#933939")
               }
             >
-              Refresh ⟳
+              Refresh 🔄
             </button>
           </div>
         ) : (
@@ -324,7 +340,7 @@ const PlayerMain: React.FC = () => {
                   (e.currentTarget.style.backgroundColor = "#933939")
                 }
               >
-                Session {session.id} – {session.participants} participants
+                Session {activeCount} with {session.participants} participants
               </button>
             ))}
           </div>
