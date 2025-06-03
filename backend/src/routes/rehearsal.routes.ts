@@ -4,13 +4,16 @@ import {
   createRehearsalSession,
   joinRehearsalSession,
   selectSong,
-  endRehearsalSession
+  endRehearsalSession,
+  getActiveSessions
 } from '../controllers/rehearsal.controller';
 
 const router = express.Router();
 
 // Create a new rehearsal session (admin only)
 router.post('/sessions', adminAuth, createRehearsalSession);
+
+router.get('/sessions', auth, getActiveSessions);
 
 // Join an existing rehearsal session
 router.post('/sessions/:sessionId/join', auth, joinRehearsalSession);

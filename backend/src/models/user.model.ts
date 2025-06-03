@@ -25,7 +25,8 @@ const userSchema = new Schema({
   instrument: {
     type: String,
     required: true,
-    enum: ['drums', 'guitar', 'bass', 'saxophone', 'keyboard', 'vocals','trumpet','violin','percussion','other']
+    enum: ['drums', 'guitar', 'bass', 'saxophone', 'keyboard', 'vocals','trumpet','violin','percussion','other'],
+    default: 'other'
   },
   isAdmin: {
     type: Boolean,

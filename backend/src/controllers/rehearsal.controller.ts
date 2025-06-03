@@ -56,11 +56,17 @@ export const joinRehearsalSession = async (req: Request, res: Response) => {
     }
 
     // Check if user is already in the session
-    if (session.participants.some(p => p.userId === userId)) {
-      return res.status(400).json({ message: 'Already in session' });
+    const existingParticipant = session.participants.find(p => p.userId === userId);
+    if (existingParticipant) {
+      // If user is already in session, just return success
+      return res.json({
+        message: 'Rejoined rehearsal session successfully',
+        session,
+        currentSong: session.currentSong // Send current song if exists
+      });
     }
 
-    // Add user to session
+    // Add new user to session
     session.participants.push({
       userId,
       username,
@@ -76,7 +82,8 @@ export const joinRehearsalSession = async (req: Request, res: Response) => {
 
     res.json({
       message: 'Joined rehearsal session successfully',
-      session
+      session,
+      currentSong: session.currentSong // Send current song if exists
     });
   } catch (error) {
     res.status(500).json({ message: 'Error joining rehearsal session', error });
@@ -86,7 +93,7 @@ export const joinRehearsalSession = async (req: Request, res: Response) => {
 export const selectSong = async (req: Request, res: Response) => {
   try {
     const { sessionId } = req.params;
-    const { songTitle } = req.body; // Expect songTitle instead of full song data
+    const { songTitle } = req.body;
 
     const session = activeSessions.get(sessionId);
     if (!session) {
@@ -97,28 +104,19 @@ export const selectSong = async (req: Request, res: Response) => {
       return res.status(403).json({ message: 'Only admin can select songs' });
     }
 
-    // Find the song from the loaded songs by title
     const song = getSongByTitle(songTitle);
     if (!song) {
       return res.status(404).json({ message: 'Song not found' });
     }
 
-    // Store the full found song object in the session
     session.currentSong = song;
 
-    // Notify all participants about the new song, sending the full Song object
-    // The frontend will then process this based on the user's instrument
+    // Emit to the specific room
     io.to(sessionId).emit('songSelected', song);
 
     res.json({
       message: 'Song selected successfully',
-      song: {
-        title: song.title,
-        artist: song.artist
-        // We might not send the full lines back in the HTTP response to keep it light,
-        // but it is sent via socket. The frontend can fetch full details if needed
-        // or rely entirely on the socket event for live song data.
-      }
+      song
     });
   } catch (error) {
     console.error('Error selecting song:', error);
@@ -149,5 +147,20 @@ export const endRehearsalSession = async (req: Request, res: Response) => {
     res.json({ message: 'Rehearsal session ended successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Error ending rehearsal session', error });
+  }
+};
+// Get all active sessions
+export const getActiveSessions = async (req: Request, res: Response) => {
+  try {
+    const sessions = Array.from(activeSessions.values()).map(session => ({
+      id: session.id,
+      participants: session.participants.length,
+      // Add other session properties as needed
+    }));
+    
+    res.json({ sessions });
+  } catch (error) {
+    console.error('Error getting active sessions:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };

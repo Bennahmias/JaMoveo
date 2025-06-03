@@ -35,12 +35,12 @@ const Signup: React.FC = () => {
     try {
       // Backend API call for registration
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-      const response = await fetch(`${backendUrl}/api/auth/register`, {
+      const response = await fetch(`${backendUrl}/api/auth/register-admin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, instrument }), // Don't send isAdmin from public signup
+        body: JSON.stringify({ username, password, instrument }), 
       });
 
       const data = await response.json();
@@ -54,9 +54,11 @@ const Signup: React.FC = () => {
       console.log('Signup successful:', data);
       setSuccess('Signup successful!'); // Optional: show success message briefly
 
-      // Log the user in immediately after successful registration and navigate to player main page
+      // Log the user in immediately after successful registration and navigate to admin main page
       login(data.user, data.token);
-      navigate('/player/main');
+      navigate('/admin/main');
+
+  
 
     } catch (err: unknown) {
       console.error('Signup error:', err);
@@ -82,7 +84,7 @@ const Signup: React.FC = () => {
 
   return (
     <div>
-      <h2>Signup Page</h2>
+      <h2>Admin Signup Page</h2>
       <form onSubmit={handleSignup}>
         <div>
           <label htmlFor="username">Username:</label>
