@@ -16,6 +16,10 @@ app.use(express.json());
 // HTTP server
 const httpServer = createServer(app);
 
+app.get("/", (req, res) => {
+  res.json({ status: "ok", message: "Debug info here" });
+});
+
 // Socket.IO server
 const io = new Server(httpServer, {
   cors: {
@@ -30,12 +34,12 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/rehearsal", rehearsalRoutes);
-app.get("/api/debug", (req, res) => {
-  res.json({ status: "ok", message: "Debug info here" });
-});
+
 
 // Setup Socket.IO handlers
 setupSocketHandlers(io);
