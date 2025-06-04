@@ -5,7 +5,7 @@ This frontend uses React Router for navigation. Below are all the main routes de
 | Path                | Component         | Access            | Description                                      |
 |---------------------|------------------|-------------------|--------------------------------------------------|
 | `/signup`           | Signup           | Public            | User signup page                                 |
-| `/signupAdmin`      | SignupAdmin      | Public            | Admin signup page                                |
+| `/signupadmin`      | SignupAdmin      | Public            | Admin signup page                                |
 | `/login`            | Login            | Public            | Login page for users and admins                  |
 | `/admin/main`       | AdminMain        | Admin only        | Admin dashboard: create/manage rehearsal session  |
 | `/admin/results`    | Results          | Admin only        | Admin: view and select songs for session         |
