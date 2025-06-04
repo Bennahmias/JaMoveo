@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { io } from "../app";
 import { getSongByTitle, Song } from "../utils/songLoader";
 
-// Store active rehearsal sessions in memory (in production, use a database)
+// Store active rehearsal sessions in memory
 interface RehearsalSession {
   id: string;
   adminId: string;
@@ -67,7 +67,7 @@ export const joinRehearsalSession = async (req: Request, res: Response) => {
       return res.json({
         message: "Rejoined rehearsal session successfully",
         session,
-        currentSong: session.currentSong, // Send current song if exists
+        currentSong: session.currentSong,
       });
     }
 
@@ -88,7 +88,7 @@ export const joinRehearsalSession = async (req: Request, res: Response) => {
     res.json({
       message: "Joined rehearsal session successfully",
       session,
-      currentSong: session.currentSong, // Send current song if exists
+      currentSong: session.currentSong,
     });
   } catch (error) {
     res.status(500).json({ message: "Error joining rehearsal session", error });
@@ -160,7 +160,6 @@ export const getActiveSessions = async (req: Request, res: Response) => {
     const sessions = Array.from(activeSessions.values()).map((session) => ({
       id: session.id,
       participants: session.participants.length,
-      // Add other session properties as needed
     }));
 
     res.json({ sessions });

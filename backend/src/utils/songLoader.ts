@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-// Define interfaces for the new song structure
+
 interface SongSegment {
-  lyrics?: string; // Lyrics might be optional for lines with only chords
+  lyrics: string; 
   chords?: string; // Chords might be optional for lines with only lyrics
 }
 
@@ -15,23 +15,20 @@ export interface Song {
   title: string;
   artist: string;
   pictureUrl?: string; // pictureUrl is optional
-  lines: SongLine[]; // The main content is now an array of SongLine objects
+  lines: SongLine[]; // The main content 
 }
 
 const songs: Song[] = [];
 const songsDirectory = path.join(__dirname, "..", "songs");
 
 export const loadSongs = () => {
-  console.log("Attempting to load songs from:", songsDirectory);
   try {
     const songFiles = fs
       .readdirSync(songsDirectory)
       .filter((file) => file.endsWith(".json"));
 
     if (songFiles.length === 0) {
-      console.warn("No song files found in the songs directory.");
-      // Depending on requirements, you might want to throw here if no songs are found
-      // throw new Error("No song files found.");
+        throw new Error("No song files found.");
     }
 
     songs.length = 0; // Clear existing songs array
@@ -54,8 +51,7 @@ export const loadSongs = () => {
                 (segment: any) =>
                   typeof segment.lyrics === "string" ||
                   typeof segment.chords === "string" ||
-                  (segment.lyrics === undefined &&
-                    segment.chords === undefined), // Allow empty segments, although unlikely with this structure
+                  segment.chords === undefined, // Allow empty chords
               ),
           )
         ) {
@@ -71,17 +67,16 @@ export const loadSongs = () => {
             })),
           };
           songs.push(loadedSong);
-          // console.log(`Loaded song: ${loadedSong.title}`); // Keep console less noisy
+          
         } else {
           console.error(
             `Skipping file ${file}: Does not match expected song structure.`,
           );
-          // Depending on requirements, you might want to throw here if any file is invalid
-          // throw new Error(`Invalid song structure in file: ${file}`);
+          
         }
       } catch (parseError: any) {
         console.error(`Error parsing JSON file ${file}:`, parseError.message);
-        // Re-throw the error to stop the process if parsing fails
+        
         throw new Error(
           `Failed to parse song file ${file}: ${parseError.message}`,
         );
@@ -93,12 +88,10 @@ export const loadSongs = () => {
       "Critical error loading songs from directory:",
       error.message,
     );
-    // Re-throw the error so server.ts can catch it and exit
     throw error;
   }
 };
 
-// Do NOT call loadSongs here. Call it in server.ts.
 
 export const getSongs = (): Song[] => {
   return songs;
@@ -110,6 +103,10 @@ export const getSongByTitle = (title: string): Song | undefined => {
 };
 
 export const searchSongs = (query: string): Song[] => {
+    // If query is empty or only whitespace, return all songs
+  if (!query || query.trim() === '') {
+    return songs;
+  }
   const lowerCaseQuery = query.toLowerCase();
   // Search by title or artist (case-insensitive)
   return songs.filter(

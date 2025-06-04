@@ -35,14 +35,6 @@ export const setupSocketHandlers = (io: Server) => {
       console.log(`User ${socket.data.user.userId} left session ${sessionId}`);
     });
 
-    // Handle scroll synchronization
-    socket.on(
-      "scrollUpdate",
-      (data: { sessionId: string; position: number }) => {
-        socket.to(data.sessionId).emit("scrollUpdate", data.position);
-      },
-    );
-
     // Handle disconnection
     socket.on("disconnect", () => {
       console.log("Client disconnected:", socket.id);

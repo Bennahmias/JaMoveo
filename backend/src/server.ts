@@ -4,20 +4,19 @@ import { loadSongs } from "./utils/songLoader";
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 import { httpServer } from "./app";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   console.error("FATAL ERROR: MONGODB_URI is not defined.");
-  process.exit(1); // Exit the process if MONGODB_URI is not defined
+  process.exit(1); 
 }
 
 // Load songs before starting the server
 try {
-  loadSongs(); // Call the synchronous function
+  loadSongs(); 
   console.log("Songs loaded successfully. Starting server...");
 
-  // Start the HTTP server
   httpServer.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

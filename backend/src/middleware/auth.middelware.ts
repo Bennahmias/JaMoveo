@@ -11,18 +11,22 @@ declare global {
   }
 }
 
-const JWT_SECRET =
-  process.env.JWT_SECRET || "jamoveo-secret-key-2024-!@#$%^&*()_+";
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET is not defined in environment variables");
+}
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
+
     const token = req.header("Authorization")?.replace("Bearer ", "");
 
     if (!token) {
       throw new Error();
     }
 
-    const decoded = jwt.verify(token, JWT_SECRET) as JWTPayload;
+    const decoded = jwt.verify(token, JWT_SECRET) as unknown as JWTPayload;
     req.user = decoded;
     next();
   } catch (error) {
