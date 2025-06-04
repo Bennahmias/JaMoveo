@@ -83,7 +83,6 @@ const Live: React.FC = () => {
 
   const toggleAutoScroll = () => {
     if (!canScroll) {
-      console.log("Content is not scrollable.");
       setIsAutoScrolling(false);
       if (scrollIntervalRef.current !== null) {
         window.clearInterval(scrollIntervalRef.current);
@@ -106,13 +105,10 @@ const Live: React.FC = () => {
   };
 
   const handleQuit = async () => {
-    console.log(
-      `Admin ${user?.username} is quitting session ${sessionId}. Attempting to end via API.`,
-    );
+    console.log(`Admin ${user?.username} is quitting session ${sessionId}.`);
     if (sessionId && token) {
       try {
-        const backendUrl =
-          import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(
           `${backendUrl}/api/rehearsal/sessions/${sessionId}`,
           {
@@ -164,6 +160,8 @@ const Live: React.FC = () => {
         color: "#fff",
         minHeight: "100vh",
         fontFamily: "Poppins, sans-serif",
+        boxSizing: "border-box",
+        paddingBottom: "80px",
       }}
     >
       <div
@@ -177,9 +175,11 @@ const Live: React.FC = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexWrap: "wrap",
+          gap: "0.5rem",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", flex: 1, minWidth: "0" }}>
           {currentSong.pictureUrl && (
             <img
               src={currentSong.pictureUrl}
@@ -190,14 +190,15 @@ const Live: React.FC = () => {
                 borderRadius: "8px",
                 objectFit: "cover",
                 marginRight: "1rem",
+                flexShrink: 0,
               }}
             />
           )}
-          <div>
-            <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", margin: 0 }}>
+          <div style={{ flex: 1, minWidth: "0" }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "bold", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
               {currentSong.title}
             </h2>
-            <p style={{ fontSize: "1.2rem", color: "#bbb", margin: 0 }}>
+            <p style={{ fontSize: "1rem", color: "#bbb", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
               {currentSong.artist}
             </p>
           </div>
@@ -213,6 +214,7 @@ const Live: React.FC = () => {
               borderRadius: "8px",
               fontWeight: "bold",
               cursor: "pointer",
+              flexShrink: 0,
             }}
             onMouseOver={(e) =>
               (e.currentTarget.style.backgroundColor = "#aa5050")
@@ -226,20 +228,20 @@ const Live: React.FC = () => {
         )}
       </div>
 
-      <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+      <div style={{ padding: "1rem", maxWidth: "800px", margin: "0 auto", boxSizing: "border-box" }}>
         {formattedLines.map((line, lineIndex) => {
           const direction = detectDirection(line);
           return (
             <div
               key={lineIndex}
               style={{
-                marginBottom: "1.5rem",
+                marginBottom: "1rem",
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "0.5rem",
+                gap: "0.3rem",
                 direction,
                 textAlign: direction === "rtl" ? "right" : "left",
-                justifyContent: direction === "rtl" ? "flex-end" : "flex-start",
+                justifyContent: "center",
                 width: "100%",
               }}
             >
@@ -249,7 +251,7 @@ const Live: React.FC = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    alignItems: direction === "rtl" ? "flex-end" : "flex-start",
                     minWidth: "1ch",
                   }}
                 >
@@ -257,16 +259,22 @@ const Live: React.FC = () => {
                     style={{
                       fontFamily: "monospace",
                       color: "#66ccff",
-                      fontSize: "1.1rem",
+                      fontSize: "0.9rem",
                       lineHeight: "1rem",
                       height: "1rem",
+                      textAlign: direction === "rtl" ? "right" : "left",
+                      overflow: "hidden", textOverflow: "ellipsis",
                     }}
                   >
                     {user?.instrument !== "vocals" && segment.chords
                       ? segment.chords
                       : "\u00A0"}
                   </div>
-                  <div style={{ fontSize: "1.5rem", fontWeight: 600 }}>
+                  <div style={{
+                    fontSize: "1.3rem",
+                    fontWeight: 600,
+                    textAlign: direction === "rtl" ? "right" : "left",
+                  }}>
                     {segment.lyrics || "\u00A0"}
                   </div>
                 </div>
@@ -281,20 +289,21 @@ const Live: React.FC = () => {
           onClick={toggleAutoScroll}
           style={{
             position: "fixed",
-            bottom: "2rem",
-            right: "2rem",
-            width: "64px",
-            height: "64px",
+            bottom: "1rem",
+            right: "1rem",
+            width: "56px",
+            height: "56px",
             backgroundColor: "#2563eb",
             color: "#fff",
             borderRadius: "50%",
-            fontSize: "1.5rem",
+            fontSize: "1.2rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             border: "none",
             boxShadow: "0 4px 6px rgba(0,0,0,0.3)",
             cursor: "pointer",
+            zIndex: 11,
           }}
           onMouseOver={(e) =>
             (e.currentTarget.style.backgroundColor = "#1e40af")

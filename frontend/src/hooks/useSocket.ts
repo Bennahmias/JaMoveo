@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { SocketContext  } from "./SocketContext";
+import { SocketContext } from "./SocketContext";
 
 export const useSocket = () => {
-    const context = useContext(SocketContext);
-    if (context === undefined) {
-      throw new Error("useSocket must be used within a SocketProvider");
-    }
-    return context;
-  };
+  const context = useContext(SocketContext);
+  if (context === undefined) {
+    throw new Error("useSocket must be used within a SocketProvider");
+  }
+  return context;
+};

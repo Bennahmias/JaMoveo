@@ -13,13 +13,12 @@ const AdminSearch: React.FC<AdminSearchProps> = ({ onSearchResults }) => {
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null); // Clear previous errors
-
     setLoading(true);
 
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
       const response = await fetch(
-        `${backendUrl}/api/rehearsal/search?q=${encodeURIComponent(query)}`
+        `${backendUrl}/api/rehearsal/search?q=${encodeURIComponent(query)}`,
       );
 
       const results: Song[] = await response.json();
@@ -52,8 +51,16 @@ const AdminSearch: React.FC<AdminSearchProps> = ({ onSearchResults }) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={loading}
+          style={{ fontWeight: "bold" }}
         />
-        <button type="submit" disabled={loading}>
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
           {loading ? "Searching..." : "Search"}
         </button>
       </form>

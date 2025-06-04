@@ -7,47 +7,35 @@ import { useSocket } from "../hooks/useSocket";
 import logo from "../assets/moveo_group_logo.jpg";
 
 const AdminMain: React.FC = () => {
-  const [sessionId, setSessionId] = useState<string | null>(null); // State to store session ID
-  const [loadingSession, setLoadingSession] = useState(true); // Loading starts immediately
-  const [sessionError, setSessionError] = useState<string | null>(null); // State for session errors
-  const navigate = useNavigate(); // Hook for navigation
-  const { user, token, isAdmin } = useAuth(); // Get user, token, and isAdmin from AuthContext
-  //const { socket } = useSocket(); // Get the socket instance
-
-  // Get the socket instance (will be null until connected)
-  const { socket } = useSocket(); // Assuming useSocket is implemented
-
-  // Use a ref to track if the session creation logic has run
+  const [sessionId, setSessionId] = useState<string | null>(null); 
+  const [loadingSession, setLoadingSession] = useState(true); 
+  const [sessionError, setSessionError] = useState<string | null>(null); 
+  const navigate = useNavigate(); 
+  const { user, token, isAdmin } = useAuth(); 
+  const { socket } = useSocket(); 
   const sessionAttemptedRef = useRef(false);
 
   useEffect(() => {
-    // This effect runs when the AdminMain component mounts and dependencies change.
-
     // Only proceed if the user is an admin and we haven't already attempted session logic
     if (!isAdmin || sessionAttemptedRef.current) {
-      if (!isAdmin) {
-        // Should not happen if AdminRoute is used, but good safeguard
+      if (!isAdmin) { //not need to happend
         navigate("/player/main");
       }
       return; // Exit if not admin or logic already attempted
     }
-
-    // Mark that session logic has been attempted
     sessionAttemptedRef.current = true;
 
-    // Function to create a session (or potentially join existing in a real app)
+    // Function to create a session 
     const handleSessionLogic = async () => {
       setLoadingSession(true);
       setSessionError(null);
       try {
-        const backendUrl =
-          import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
-        // For this simplified version, always create a new session on page load for admin.
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(`${backendUrl}/api/rehearsal/sessions`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Send the admin's token
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ instrument: user?.instrument }),
         });
@@ -61,7 +49,7 @@ const AdminMain: React.FC = () => {
         }
 
         console.log("Admin session created successfully:", data);
-        setSessionId(data.sessionId); // Store the new session ID
+        setSessionId(data.sessionId); 
 
         // Join the socket room for this session ID
         if (socket) {
@@ -74,7 +62,6 @@ const AdminMain: React.FC = () => {
           console.warn(
             "Socket not connected when session created. Will attempt to join when socket connects.",
           );
-          // We'll add logic below in another useEffect to join when socket becomes available
         }
       } catch (err: unknown) {
         console.error("Failed to handle admin session:", err);
@@ -95,10 +82,9 @@ const AdminMain: React.FC = () => {
 
     // If admin, initiate session logic
     if (isAdmin) {
-      // Check isAdmin here
       handleSessionLogic();
     }
-  }, [isAdmin, token, user?.instrument, navigate, socket]); // Dependencies: trigger when auth status or user data changes. Removed sessionId.
+  }, [isAdmin, token, user?.instrument, navigate, socket]); 
 
   // New useEffect to join socket room once socket is connected AND sessionId is available
   useEffect(() => {
@@ -113,16 +99,14 @@ const AdminMain: React.FC = () => {
     } else {
       console.log("Waiting for socket connection or SessionId to join room.");
     }
-  }, [socket, sessionId]); // Dependencies: trigger when socket or sessionId changes
+  }, [socket, sessionId]); 
 
   const handleSearchResults = (results: Song[]) => {
     console.log(
       "Received search results in AdminMain, preparing to navigate to Results page:",
       results,
     );
-    // Navigate to the Results page, passing results AND the current sessionId
     if (results.length > 0 && sessionId) {
-      // Ensure we have a sessionId
       navigate("/admin/results", {
         state: { searchResults: results, sessionId: sessionId },
       }); // Pass results AND sessionId
@@ -142,13 +126,14 @@ const AdminMain: React.FC = () => {
         minHeight: "100vh",
         width: "100vw",
         margin: 0,
-        padding: 0,
         color: "#333",
         fontFamily: `'Poppins', sans-serif`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        boxSizing: "border-box",
+        padding: "1rem",
       }}
     >
       <img
@@ -159,10 +144,11 @@ const AdminMain: React.FC = () => {
           height: "auto",
           marginBottom: "1rem",
           borderRadius: "12px",
+          maxWidth: "90%",
         }}
       />
       <h2
-        style={{ fontSize: "2.5rem", color: "#933939", marginBottom: "1rem" }}
+        style={{ fontSize: "2.5rem", color: "#933939", marginBottom: "1rem", textAlign: "center" }}
       >
         Search any song...🎶
       </h2>
@@ -174,12 +160,13 @@ const AdminMain: React.FC = () => {
           padding: "2rem",
           borderRadius: "20px",
           boxShadow: "0 0 10px #444",
-          width: "100%",
+          width: "95%",
           maxWidth: "400px",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
           textAlign: "center",
+          boxSizing: "border-box",
         }}
       >
         {loadingSession && <p>Loading or creating rehearsal session...</p>}

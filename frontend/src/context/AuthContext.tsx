@@ -25,18 +25,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
-  // Basic login function
   const login = (userData: User, userToken: string) => {
     setUser(userData);
     setToken(userToken);
-    // In a real app, you'd also store token/user in localStorage for persistence
   };
 
-  // Basic logout function
   const logout = () => {
     setUser(null);
     setToken(null);
-    // In a real app, clear localStorage here
   };
 
   const isAuthenticated = !!user;

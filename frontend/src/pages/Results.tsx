@@ -28,8 +28,7 @@ const Results: React.FC = () => {
         return;
       }
 
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
       const response = await fetch(
         `${backendUrl}/api/rehearsal/sessions/${sessionId}/songs`,
         {
@@ -57,7 +56,6 @@ const Results: React.FC = () => {
       });
     } catch (error) {
       console.error("Error selecting song:", error);
-      // Handle error appropriately
     }
   };
 
@@ -68,17 +66,18 @@ const Results: React.FC = () => {
         minHeight: "100vh",
         width: "100vw",
         margin: 0,
-        padding: 0,
         color: "#333",
         fontFamily: `'Poppins', sans-serif`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        boxSizing: "border-box",
+        padding: "1rem",
       }}
     >
       <h2
-        style={{ fontSize: "2.5rem", color: "#933939", marginBottom: "1rem" }}
+        style={{ fontSize: "2.5rem", color: "#933939", marginBottom: "1rem", textAlign: "center" }}
       >
         Search Results 🎼
       </h2>
@@ -89,9 +88,10 @@ const Results: React.FC = () => {
           padding: "2rem",
           borderRadius: "20px",
           boxShadow: "0 0 10px #444",
-          width: "100%",
+          width: "95%",
           maxWidth: "600px",
           textAlign: "center",
+          boxSizing: "border-box",
         }}
       >
         <SongList songs={searchResults} onSongSelect={handleSongSelect} />

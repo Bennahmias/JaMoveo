@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import io, { Socket } from "socket.io-client";
-import { useAuth } from "../context/AuthContext"; 
+import { useAuth } from "../context/AuthContext";
 import { SocketContext } from "./SocketContext";
 
-
-
-// Create the SocketProvider component
 export const SocketProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const { token } = useAuth(); // Get token from AuthContext
+  const { token } = useAuth(); 
   const [socket, setSocket] = useState<Socket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
 
@@ -28,10 +25,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
       return; // Stop here if no token
     }
 
-    const backendUrl =
-      import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
-    console.log(`Attempting to connect socket to ${backendUrl}`);
-
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     // Attempt to connect
     const newSocket = io(backendUrl, {
       auth: {
@@ -51,7 +45,6 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
     });
     newSocket.on("connect_error", (err) => {
       console.error("Socket connection error:", err.message);
-      // Handle specific errors if needed
     });
 
     setSocket(newSocket); // Store the active socket instance
@@ -60,8 +53,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
     return () => {
       console.log("Cleaning up socket connection.");
       if (newSocket) {
-        newSocket.disconnect();
-        // Important: Remove listeners to prevent memory leaks on re-renders
+        newSocket.disconnect(); //removes event listeners
         newSocket.off("connect");
         newSocket.off("disconnect");
         newSocket.off("connect_error");
@@ -79,5 +71,3 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
     </SocketContext.Provider>
   );
 };
-
-
