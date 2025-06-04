@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 import { loadSongs } from "./utils/songLoader";
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 import { httpServer } from "./app";
 
 const PORT = process.env.PORT;

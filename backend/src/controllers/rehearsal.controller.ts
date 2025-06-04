@@ -157,10 +157,15 @@ export const endRehearsalSession = async (req: Request, res: Response) => {
 // Get all active sessions
 export const getActiveSessions = async (req: Request, res: Response) => {
   try {
-    const sessions = Array.from(activeSessions.values()).map((session) => ({
-      id: session.id,
-      participants: session.participants.length,
-    }));
+    const sessions = Array.from(activeSessions.values()).map((session) => {
+      // Find the admin participant
+      const admin = session.participants.find(p => p.userId === session.adminId);
+      return {
+        id: session.id,
+        participants: session.participants.length,
+        adminName: admin ? admin.username : 'Unknown Admin'
+      };
+    });
 
     res.json({ sessions });
   } catch (error) {
