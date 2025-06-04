@@ -10,8 +10,8 @@ The application built using React, Node.js, Socket.IO, and MongoDB.
 
 ## How to Open the Project
 
-- **User Signup:** [...]
-- **Admin Signup:** [...]
+- **User Signup:** https://ja-moveo-front-two.vercel.app/signup
+- **Admin Signup:** https://ja-moveo-front-two.vercel.app/signupadmin
 
 ---
 
