@@ -33,6 +33,9 @@ mongoose
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/rehearsal", rehearsalRoutes);
+app.get("/api/debug", (req, res) => {
+  res.json({ status: "ok", message: "Debug info here" });
+});
 
 // Setup Socket.IO handlers
 setupSocketHandlers(io);
