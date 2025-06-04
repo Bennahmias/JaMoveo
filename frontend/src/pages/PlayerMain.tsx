@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useSocket } from "../hooks/useSocket";
@@ -19,7 +19,7 @@ const PlayerMain: React.FC = () => {
   const { token, user } = useAuth();
   const { socket } = useSocket();
 
-  const fetchSessions = async () => {
+  const fetchSessions = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -41,22 +41,7 @@ const PlayerMain: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
-  useEffect(() => {
-    if (!socket) return;
-  
-    const handleSessionCreated = () => setActiveCount((prev) => prev + 1);
-    const handleSessionEnded = () => setActiveCount((prev) => Math.max(0, prev - 1));
-  
-    socket.on("sessionCreated", handleSessionCreated);
-    socket.on("sessionEnded", handleSessionEnded);
-  
-    return () => {
-      socket.off("sessionCreated", handleSessionCreated);
-      socket.off("sessionEnded", handleSessionEnded);
-    };
-  }, [socket]);
-  
+  }, [token]);
 
   useEffect(() => {
     if (token) {
@@ -66,7 +51,7 @@ const PlayerMain: React.FC = () => {
       setIsLoading(false);
       setSessions([]);
     }
-  }, [token]);
+  }, [token,fetchSessions]);
 
   useEffect(() => {
     if (!socket || !selectedSessionId) return;
@@ -92,6 +77,22 @@ const PlayerMain: React.FC = () => {
       socket.off("sessionEnded", handleSessionEnded);
     };
   }, [socket, selectedSessionId, navigate]);
+
+  useEffect(() => {
+    if (!socket) return;
+  
+    const handleSessionCreated = () => setActiveCount((prev) => prev + 1);
+    const handleSessionEnded = () => setActiveCount((prev) => Math.max(0, prev - 1));
+  
+    socket.on("sessionCreated", handleSessionCreated);
+    socket.on("sessionEnded", handleSessionEnded);
+  
+    return () => {
+      socket.off("sessionCreated", handleSessionCreated);
+      socket.off("sessionEnded", handleSessionEnded);
+    };
+  }, [socket]);
+  
 
   const handleJoinSession = async (sessionId: string) => {
     setError(null);

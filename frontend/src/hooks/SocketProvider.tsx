@@ -1,16 +1,10 @@
-import { useEffect, useState, useContext, createContext } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import io, { Socket } from "socket.io-client";
-import { useAuth } from "../context/AuthContext"; // Import useAuth
+import { useAuth } from "../context/AuthContext"; 
+import { SocketContext } from "./SocketContext";
 
-// Define the type for the socket context value
-interface ISocketContext {
-  socket: Socket | null;
-  isConnected: boolean;
-}
 
-// Create the context with a default undefined value
-const SocketContext = createContext<ISocketContext | undefined>(undefined);
 
 // Create the SocketProvider component
 export const SocketProvider: React.FC<{ children: ReactNode }> = ({
@@ -51,12 +45,10 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
       console.log("Socket connected successfully:", newSocket.id);
       setIsConnected(true);
     });
-
     newSocket.on("disconnect", (reason) => {
       console.log("Socket disconnected:", reason);
       setIsConnected(false);
     });
-
     newSocket.on("connect_error", (err) => {
       console.error("Socket connection error:", err.message);
       // Handle specific errors if needed
@@ -75,7 +67,8 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
         newSocket.off("connect_error");
       }
     };
-  }, [token]); // Effect depends on token
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]); // token is the only safe and necessary dependency
 
   // Provide the socket and connection status via context
   const contextValue = { socket, isConnected };
@@ -87,11 +80,4 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
-// Custom hook to consume the socket context
-export const useSocket = () => {
-  const context = useContext(SocketContext);
-  if (context === undefined) {
-    throw new Error("useSocket must be used within a SocketProvider");
-  }
-  return context;
-};
+
