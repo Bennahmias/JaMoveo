@@ -19,8 +19,9 @@ The application built using React, Node.js, Socket.IO, and MongoDB.
 
 ### Step 1: Clone the Repository
 
-```sh
+
 git clone https://github.com/Bennahmias/JaMoveo
+```sh
 cd JaMoveo
 ```
 
